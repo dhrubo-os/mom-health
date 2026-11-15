@@ -49,6 +49,21 @@ nav.tabs{display:flex;gap:4px;overflow-x:auto;padding:4px 0 10px;scrollbar-width
 nav.tabs::-webkit-scrollbar{display:none}
 nav.tabs a{flex:none;text-decoration:none;color:var(--ink-2);padding:7px 13px;border-radius:999px;font-size:14px;font-weight:550;white-space:nowrap}
 nav.tabs a:hover{background:var(--surface-2)}
+.menu-btn{display:none}
+@media (max-width:640px){
+  .top-row{flex-wrap:wrap}
+  .top-row>div:first-child{flex:1;min-width:0}
+  .top-row .spacer{display:none}
+  .menu-btn{display:flex;align-items:center;gap:8px;order:3;width:100%;margin:8px 0 2px;padding:10px 14px;border:1.5px solid var(--accent);border-radius:12px;background:var(--surface);color:var(--accent);font:inherit;font-weight:650;font-size:15px;cursor:pointer}
+  .menu-btn .mb-ico{font-size:18px;line-height:1}
+  .menu-btn .mb-cur{margin-left:auto;color:var(--ink-2);font-weight:550;font-size:14px}
+  .menu-btn .mb-cur::before{content:"You're on: ";color:var(--ink-3);font-weight:400}
+  .menu-btn[aria-expanded="true"]{background:var(--accent);color:var(--accent-ink)}
+  .menu-btn[aria-expanded="true"] .mb-cur{display:none}
+  nav.tabs{display:none}
+  nav.tabs.open{display:grid;grid-template-columns:1fr 1fr;gap:6px;overflow:visible;padding:6px 0 12px}
+  nav.tabs.open a{text-align:center;padding:11px 8px;border:1px solid var(--line);border-radius:10px;white-space:normal}
+}
 nav.tabs a.on{background:var(--accent);color:var(--accent-ink)}
 
 main{padding:22px 0 80px}
@@ -164,6 +179,19 @@ tr.grp td{background:var(--surface-2);font-weight:650;font-size:13px;color:var(-
 .v.good{background:var(--good-soft);color:var(--good)}
 .tbl-wrap.scroll table{min-width:680px}
 @media (max-width:640px){
+  .tbl-wrap.cards{overflow:visible}
+  .tbl-wrap.cards table{min-width:0}
+  .tbl-wrap.cards thead{display:none}
+  .tbl-wrap.cards table,.tbl-wrap.cards tbody,.tbl-wrap.cards tr{display:block;width:100%}
+  .tbl-wrap.cards tr{border-bottom:1px solid var(--line);padding:10px 14px}
+  .tbl-wrap.cards td{display:block;border:none;padding:4px 0;text-align:left;white-space:normal;overflow-wrap:anywhere}
+  .tbl-wrap.cards td[data-label]{display:grid;grid-template-columns:40% 1fr;gap:10px;align-items:baseline}
+  .tbl-wrap.cards td[data-label]::before{content:attr(data-label);font-size:12.5px;line-height:1.35;color:var(--ink-3)}
+  .tbl-wrap.cards td.empty{display:none}
+  .tbl-wrap.cards tr.grp{padding:0;background:var(--surface-2)}
+  .tbl-wrap.cards tr.grp td{display:block;padding:8px 14px}
+}
+@media (max-width:640px){
   .tbl-wrap.stack thead{display:none}
   .tbl-wrap.stack table,.tbl-wrap.stack tbody,.tbl-wrap.stack tr,.tbl-wrap.stack td{display:block;width:100%}
   .tbl-wrap.stack tr{border-bottom:1px solid var(--line);padding:8px 0}
@@ -244,6 +272,7 @@ details.mg[open]>summary::before{transform:rotate(90deg)}
         <div class="sub" id="psub"></div>
       </div>
       <div class="spacer"></div>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="tabs"><span class="mb-ico">☰</span><span class="mb-txt">Menu</span><span class="mb-cur" id="menuCur"></span></button>
       <button class="icon-btn" id="themeBtn" title="Toggle light/dark">◐</button>
     </div>
     <nav class="tabs" id="tabs"></nav>
@@ -302,9 +331,18 @@ const VIEWS = [
   ["medicines","Medicines"],["medguide","Medicine guide"],["labs","Lab values"],["diet","Diet"],["questions","For the doctor"],["progress","Progress"]
 ];
 function renderTabs(cur){
+  const lab=(VIEWS.find(([k])=>k===cur)||[,""])[1]; const mc=document.getElementById("menuCur"); if(mc) mc.textContent=lab;
+  setMenu(false);
   $("#tabs").innerHTML = VIEWS.map(([k,l])=>`<a href="#${k}" class="${k===cur?"on":""}">${l}</a>`).join("");
   const on = $("#tabs a.on"); if(on) on.scrollIntoView({block:"nearest",inline:"center"});
 }
+
+function setMenu(open){
+  const b=document.getElementById("menuBtn"), t=document.getElementById("tabs"); if(!b||!t) return;
+  b.setAttribute("aria-expanded", open?"true":"false"); t.classList.toggle("open", open);
+  b.querySelector(".mb-txt").textContent = open ? "Close menu" : "Menu";
+}
+document.addEventListener("click", e=>{ if(e.target.closest("#menuBtn")){ setMenu(document.getElementById("menuBtn").getAttribute("aria-expanded")!=="true"); } });
 
 // ---------- shared bits ----------
 function docChips(ids){
@@ -513,13 +551,13 @@ V.labs = () => {
   return `
   <h2 class="view-title">Lab values</h2>
   <p class="lede">Blood test results side by side, Dhaka (April) vs CMC (late May / early June). Red = outside the normal range, amber = borderline.</p>
-  <div class="tbl-wrap scroll"><table>
+  <div class="tbl-wrap scroll cards"><table>
     <thead><tr><th>Test</th>${H.labDates.map(d=>`<th>${esc(d.label)}<div style="text-transform:none;font-weight:400">${esc(d.where)}</div></th>`).join("")}<th>Normal</th><th>Meaning</th></tr></thead>
     <tbody>
     ${groups.map(g=>`<tr class="grp"><td colspan="${3+H.labDates.length}">${esc(g)}</td></tr>`+H.labs.filter(l=>l.group===g).map(l=>`
       <tr><td><b>${esc(l.name)}</b>${l.unit?` <span class="muted small">${esc(l.unit)}</span>`:""}</td>
-      ${H.labDates.map(d=>`<td class="num">${cell(l[d.key], l[d.key]==null?"":((l.flags&&l.flags[d.key]!=null)?l.flags[d.key]:l.flag))}</td>`).join("")}
-      <td class="num muted small">${esc(l.ref)}</td><td class="small">${esc(l.explain)}</td></tr>`).join("")).join("")}
+      ${H.labDates.map(d=>`<td class="num" data-label="${esc(d.short||d.label)}"><span>${cell(l[d.key], l[d.key]==null?"":((l.flags&&l.flags[d.key]!=null)?l.flags[d.key]:l.flag))}</span></td>`).join("")}
+      <td class="num muted small" data-label="Normal range"><span>${esc(l.ref)}</span></td><td class="small${l.explain?"":" empty"}" data-label="Meaning"><span>${esc(l.explain)}</span></td></tr>`).join("")).join("")}
     </tbody></table></div>
   <p class="footer-note">Normal ranges differ slightly between labs. The ranges shown are from the reports themselves.</p>`;
 };
@@ -565,9 +603,9 @@ V.progress = () => {
   return `
   <h2 class="view-title">Progress</h2>
   <p class="lede">Readings and check-ups over time. Send new BP/weight readings, symptoms, or new reports, and they'll be added here and to the timeline.</p>
-  <div class="tbl-wrap"><table>
+  <div class="tbl-wrap cards"><table>
     <thead><tr><th>Date</th><th>BP</th><th>Pulse</th><th>Weight</th><th>Note</th></tr></thead>
-    <tbody>${rows.map(r=>`<tr><td class="num">${fmtDate(r.date)}</td><td class="num">${esc(r.bp??"—")}</td><td class="num">${esc(r.pulse??"—")}</td><td class="num">${r.weightKg!=null?esc(r.weightKg)+" kg":"—"}</td><td>${esc(r.note)}</td></tr>`).join("")}</tbody>
+    <tbody>${rows.map(r=>`<tr><td class="num"><b>${fmtDate(r.date)}</b></td><td class="num" data-label="BP"><span>${esc(r.bp??"—")}</span></td><td class="num" data-label="Pulse"><span>${esc(r.pulse??"—")}</span></td><td class="num" data-label="Weight"><span>${r.weightKg!=null?esc(r.weightKg)+" kg":"—"}</span></td><td data-label="Note"><span>${esc(r.note)}</span></td></tr>`).join("")}</tbody>
   </table></div>
   <h3 class="section-h">Things worth tracking at home</h3>
   <div class="grid two">

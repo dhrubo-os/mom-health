@@ -690,8 +690,8 @@ window.HEALTH = {
   // LAB VALUES  (value null = not tested)
   // ---------------------------------------------------------------------------
   labDates: [
-    { key: "apr", label: "5 Apr 2026", where: "BSH Dhaka" },
-    { key: "jun", label: "29 May–3 Jun 2026", where: "CMC Vellore" }
+    { key: "apr", label: "5 Apr 2026", where: "BSH Dhaka", short: "Dhaka · Apr" },
+    { key: "jun", label: "29 May–3 Jun 2026", where: "CMC Vellore", short: "CMC · May–Jun" }
   ],
   labs: [
     { group: "Blood count", name: "Haemoglobin", unit: "g/dL", ref: "BSH 11.5–15 · CMC 11–15 (F)", apr: 11.1, jun: 11.0, flag: "low", flags: { jun: "borderline" }, explain: "Carries oxygen. April was slightly below BSH's range; May is at the bottom of CMC's range." },
