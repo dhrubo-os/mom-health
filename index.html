@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ma's Health Record</title>
+<style>
+:root{
+  --bg:#f6f4ef; --surface:#ffffff; --surface-2:#f0ede6; --ink:#1f2328; --ink-2:#555b63; --ink-3:#80868e;
+  --line:#e2ddd3; --accent:#2f6f6a; --accent-ink:#ffffff; --accent-soft:#e2efed;
+  --dhaka:#3d7a4a; --dhaka-soft:#e4f0e6; --vellore:#3559a8; --vellore-soft:#e3eaf7;
+  --home:#8a5a1c; --home-soft:#f6ecdc; --up:#b4462f; --up-soft:#f8e6e1; --bgc:#6b6f76; --bgc-soft:#ecedef;
+  --good:#2c7a3f; --good-soft:#e2f2e6; --warn:#a0620a; --warn-soft:#fbefd9; --bad:#b33a2b; --bad-soft:#f9e3df;
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05); --r:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171a; --surface:#1d2024; --surface-2:#25292e; --ink:#e8e6e1; --ink-2:#b4b8bd; --ink-3:#868b92;
+    --line:#32373d; --accent:#6fb8b0; --accent-ink:#0f1a19; --accent-soft:#1f3432;
+    --dhaka:#7cc08a; --dhaka-soft:#1f3124; --vellore:#8fa9e6; --vellore-soft:#1f2940;
+    --home:#d9a35c; --home-soft:#3a2d1b; --up:#ec8a73; --up-soft:#3d231d; --bgc:#a3a8af; --bgc-soft:#2a2d31;
+    --good:#7cc58c; --good-soft:#1d3323; --warn:#e5b45e; --warn-soft:#3a2f18; --bad:#ee8b7d; --bad-soft:#3d211d;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171a; --surface:#1d2024; --surface-2:#25292e; --ink:#e8e6e1; --ink-2:#b4b8bd; --ink-3:#868b92;
+  --line:#32373d; --accent:#6fb8b0; --accent-ink:#0f1a19; --accent-soft:#1f3432;
+  --dhaka:#7cc08a; --dhaka-soft:#1f3124; --vellore:#8fa9e6; --vellore-soft:#1f2940;
+  --home:#d9a35c; --home-soft:#3a2d1b; --up:#ec8a73; --up-soft:#3d231d; --bgc:#a3a8af; --bgc-soft:#2a2d31;
+  --good:#7cc58c; --good-soft:#1d3323; --warn:#e5b45e; --warn-soft:#3a2f18; --bad:#ee8b7d; --bad-soft:#3d211d;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans Bengali",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+button{font:inherit;color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+/* header */
+header.top{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.top-row{display:flex;align-items:center;gap:12px;padding:12px 0 6px}
+.top h1{font-size:19px;margin:0;font-weight:650;letter-spacing:-.01em}
+.top .sub{color:var(--ink-3);font-size:13px}
+.top .spacer{flex:1}
+.icon-btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:6px 10px;cursor:pointer;font-size:14px}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{flex:none;text-decoration:none;color:var(--ink-2);padding:7px 13px;border-radius:999px;font-size:14px;font-weight:550;white-space:nowrap}
+nav.tabs a:hover{background:var(--surface-2)}
+nav.tabs a.on{background:var(--accent);color:var(--accent-ink)}
+
+main{padding:22px 0 80px}
+.backbar{position:fixed;left:50%;transform:translateX(-50%);bottom:max(18px,env(safe-area-inset-bottom));z-index:30;max-width:calc(100vw - 32px)}
+.backbar a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.backbar a{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;font-size:14.5px;padding:9px 16px;border-radius:999px;box-shadow:var(--shadow)}
+.backbar a:hover{filter:brightness(1.08)}
+h2.view-title{font-size:26px;letter-spacing:-.02em;margin:4px 0 4px}
+p.lede{color:var(--ink-2);margin:0 0 20px;max-width:760px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 20px}
+.grid{display:grid;gap:14px}
+.grid.two{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+.muted{color:var(--ink-3)}
+.small{font-size:13.5px}
+
+/* banners */
+.banner{display:flex;gap:14px;align-items:flex-start;border-radius:var(--r);padding:14px 18px;margin-bottom:14px}
+.banner .b-ico{font-size:22px;line-height:1.2}
+.banner.up{background:var(--up-soft);border:1px solid color-mix(in srgb,var(--up) 35%,transparent)}
+.banner.em{background:var(--bad-soft);border:1px solid color-mix(in srgb,var(--bad) 35%,transparent)}
+.banner b{font-weight:650}
+.banner ul{margin:6px 0 0;padding-left:20px}
+
+/* story */
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-bottom:18px}
+@media (max-width:800px){.hero{grid-template-columns:1fr}}
+.hero .card h3{margin:0 0 6px;font-size:15px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.big-dx{font-size:22px;font-weight:650;letter-spacing:-.01em;line-height:1.3;margin:0 0 6px}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14.5px;margin:0}
+.facts dt{color:var(--ink-3)}
+.facts dd{margin:0}
+.story-block{margin-bottom:12px}
+.story-block h3{margin:0 0 6px;font-size:18px}
+.story-block p{margin:0;color:var(--ink)}
+.diagram{display:block;width:100%;max-width:520px;height:auto;margin:6px auto 0}
+
+/* timeline */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.legend span{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-2)}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.tl{position:relative;margin-left:8px}
+.tl::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl-item{position:relative;padding-left:44px;margin-bottom:18px}
+.tl-dot{position:absolute;left:3px;top:20px;width:18px;height:18px;border-radius:50%;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--c)}
+.tl-item .card{border-left:4px solid var(--c)}
+.tl-date{font-weight:650;font-size:14px;color:var(--c)}
+.tl-place{font-size:13px;color:var(--ink-3)}
+.tl-title{font-size:18px;font-weight:650;margin:2px 0 6px;letter-spacing:-.01em}
+.tl-item p{margin:0 0 8px}
+.tl-item ul{margin:4px 0 8px;padding-left:20px;color:var(--ink-2);font-size:14.5px}
+.ph-background{--c:var(--bgc);--cs:var(--bgc-soft)}
+.ph-dhaka{--c:var(--dhaka);--cs:var(--dhaka-soft)}
+.ph-gap{--c:var(--ink-3);--cs:var(--surface-2)}
+.ph-vellore{--c:var(--vellore);--cs:var(--vellore-soft)}
+.ph-home{--c:var(--home);--cs:var(--home-soft)}
+.ph-upcoming{--c:var(--up);--cs:var(--up-soft)}
+.tl-item.ph-gap .card{border-style:dashed;background:transparent;box-shadow:none}
+.doc-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.doc-chip{display:flex;align-items:center;gap:8px;background:var(--cs,var(--surface-2));border:1px solid var(--line);border-radius:10px;padding:4px 10px 4px 4px;cursor:pointer;text-decoration:none;color:var(--ink);font-size:13.5px;font-weight:550}
+.doc-chip img{width:34px;height:44px;object-fit:cover;border-radius:5px;border:1px solid var(--line);background:#fff}
+.doc-chip:hover{border-color:var(--c,var(--accent))}
+
+/* reports */
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.filters button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:13.5px}
+.filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.report{margin-bottom:18px;scroll-margin-top:120px}
+.report-head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;justify-content:space-between}
+.report h3{margin:0;font-size:20px;letter-spacing:-.01em}
+.report .meta{color:var(--ink-3);font-size:13.5px;margin:2px 0 12px}
+.report-body{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:820px){.report-body{grid-template-columns:1fr}}
+.report h4{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3)}
+.report ul.kf{margin:0;padding-left:18px;font-size:14.5px}
+.report ul.kf li{margin-bottom:3px}
+.plain{background:var(--accent-soft);border-radius:12px;padding:14px 16px;font-size:15px}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding:4px 0 6px;margin-top:14px}
+.thumbs button{flex:none;border:1px solid var(--line);border-radius:8px;padding:0;background:#fff;cursor:zoom-in;overflow:hidden;position:relative}
+.thumbs img{display:block;height:150px;width:auto}
+.thumbs .pg{position:absolute;bottom:4px;right:4px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;padding:1px 6px;border-radius:6px}
+.terms{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.term{border:1px dashed var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:2px 10px;font-size:13px;cursor:help}
+
+/* conditions */
+.cond h3{margin:0 0 6px;font-size:17px;line-height:1.35}
+.cond dl{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:10px 0 8px;font-size:14.5px}
+.cond dt{color:var(--ink-3);font-size:13px;padding-top:1px}
+.cond dd{margin:0}
+.st-active{background:var(--warn-soft);color:var(--warn)}
+.st-monitoring{background:var(--vellore-soft);color:var(--vellore)}
+.st-resolved{background:var(--good-soft);color:var(--good)}
+.st-incidental{background:var(--bgc-soft);color:var(--bgc)}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3);font-weight:600;background:var(--surface-2);position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.grp td{background:var(--surface-2);font-weight:650;font-size:13px;color:var(--ink-2)}
+.v{display:inline-block;padding:1px 8px;border-radius:6px;font-weight:600}
+.v.low,.v.high{background:var(--bad-soft);color:var(--bad)}
+.v.borderline{background:var(--warn-soft);color:var(--warn)}
+.v.good{background:var(--good-soft);color:var(--good)}
+.tbl-wrap.scroll table{min-width:680px}
+@media (max-width:640px){
+  .tbl-wrap.stack thead{display:none}
+  .tbl-wrap.stack table,.tbl-wrap.stack tbody,.tbl-wrap.stack tr,.tbl-wrap.stack td{display:block;width:100%}
+  .tbl-wrap.stack tr{border-bottom:1px solid var(--line);padding:8px 0}
+  .tbl-wrap.stack td{border:none;padding:2px 14px}
+  .tbl-wrap.stack tr.grp{padding:0}
+  .tbl-wrap.stack tr.grp td{padding:8px 14px}
+}
+.med-name{font-weight:650}
+.med-note{color:var(--ink-3);font-size:13.5px}
+
+/* diet */
+.meal{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.meal:last-child{border-bottom:none}
+.meal .t{font-weight:650;color:var(--accent);font-variant-numeric:tabular-nums}
+.meal .m{font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{padding:4px 10px;border-radius:999px;font-size:13.5px}
+.chips.no span{background:var(--bad-soft);color:var(--bad)}
+.chips.yes span{background:var(--good-soft);color:var(--good)}
+
+/* questions */
+.q{display:flex;gap:12px;align-items:flex-start}
+.q input{margin-top:6px;width:18px;height:18px;accent-color:var(--accent);flex:none}
+.q .topic{font-weight:650}
+.q.done .qt{text-decoration:line-through;color:var(--ink-3)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(10,12,14,.92);z-index:100;display:none;flex-direction:column}
+.lb.open{display:flex}
+.lb-bar{display:flex;align-items:center;gap:10px;color:#eee;padding:10px 16px;font-size:14px}
+.lb-bar .spacer{flex:1}
+.lb-bar button,.lb-bar a{background:rgba(255,255,255,.12);border:none;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;text-decoration:none;font-size:14px}
+.lb-stage{flex:1;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:0 12px 16px}
+.lb-stage img{max-width:100%;height:auto;background:#fff;border-radius:4px;cursor:zoom-in}
+.lb-stage.zoom img{max-width:none;width:180%;cursor:zoom-out}
+@media (max-width:700px){.lb-stage.zoom img{width:300%}}
+
+/* tooltip popover */
+.pop{position:fixed;z-index:120;max-width:320px;background:var(--ink);color:var(--bg);padding:10px 12px;border-radius:10px;font-size:13.5px;line-height:1.45;box-shadow:0 8px 24px rgba(0,0,0,.25);display:none}
+.pop b{display:block;margin-bottom:2px}
+
+.mg-keys{display:grid;gap:8px;margin:0 0 22px}
+.mg-key{padding:11px 14px;border-radius:10px;font-size:14.5px;line-height:1.5;border:1px solid var(--line);background:var(--surface)}
+.mg-key.bad{background:var(--bad-soft);border-color:color-mix(in srgb,var(--bad) 30%,transparent)}
+.mg-key.warn{background:var(--warn-soft);border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
+.mg-group{font-size:13px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 8px}
+details.mg{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:10px}
+details.mg>summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+details.mg>summary::-webkit-details-marker{display:none}
+details.mg>summary::before{content:"▸";color:var(--ink-3);transition:transform .15s;display:inline-block}
+details.mg[open]>summary::before{transform:rotate(90deg)}
+.mg-name{font-weight:650;font-size:16px}
+.mg-dose{color:var(--ink-2);font-size:14px}
+.mg-body{padding:0 18px 16px;display:grid;grid-template-columns:1fr 1fr;gap:12px 22px}
+@media (max-width:720px){.mg-body{grid-template-columns:1fr}}
+.mg-sec h4{margin:6px 0 4px;font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-3)}
+.mg-sec ul{margin:0;padding-left:18px}.mg-sec li{margin:2px 0}
+.mg-sec p{margin:0}
+.mg-sec.full{grid-column:1/-1}
+.mg-sec.serious h4{color:var(--bad)}
+.mg-sec.stop{background:var(--warn-soft);border-radius:8px;padding:8px 12px}
+.mg-src a{font-size:13px;margin-right:12px;color:var(--accent)}
+.footer-note{margin-top:30px;font-size:13px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:14px}
+.flex{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.section-h{font-size:18px;margin:26px 0 10px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="top-row">
+      <div>
+        <h1 id="pname">Health Record</h1>
+        <div class="sub" id="psub"></div>
+      </div>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="themeBtn" title="Toggle light/dark">◐</button>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+</header>
+
+<main class="wrap" id="view"></main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <div class="lb-bar">
+    <button id="lbPrev">‹ Prev</button>
+    <span id="lbCap"></span>
+    <button id="lbNext">Next ›</button>
+    <div class="spacer"></div>
+    <a id="lbOpen" target="_blank" rel="noopener">Open full size ↗</a>
+    <button id="lbClose">✕ Close</button>
+  </div>
+  <div class="lb-stage" id="lbStage"><img id="lbImg" alt=""></div>
+</div>
+<div class="pop" id="pop"></div>
+
+<script src="data/health-data.js"></script>
+<script src="data/med-guide.js"></script>
+<script>
+(function(){
+const H = window.HEALTH;
+const $ = (s,el=document)=>el.querySelector(s);
+const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad = n => String(n).padStart(2,"0");
+const thumb = p => `scans/thumbs/page-${pad(p)}.jpg`;
+const full  = p => `scans/original/page-${pad(p)}.jpg`;
+const docById = Object.fromEntries(H.documents.map(d=>[d.id,d]));
+const fmtDate = iso => { const d=new Date(iso+"T00:00:00"); return isNaN(d)?iso:d.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}); };
+const store = {
+  get(k,def){ try{ const v=localStorage.getItem("mh:"+k); return v==null?def:JSON.parse(v);}catch(e){return def;} },
+  set(k,v){ try{ localStorage.setItem("mh:"+k,JSON.stringify(v)); }catch(e){} }
+};
+
+// ---------- theme ----------
+const applyTheme = t => { if(t) document.documentElement.setAttribute("data-theme",t); else document.documentElement.removeAttribute("data-theme"); };
+applyTheme(store.get("theme",null));
+$("#themeBtn").onclick = () => {
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const cur = document.documentElement.getAttribute("data-theme") || (dark?"dark":"light");
+  const nxt = cur==="dark"?"light":"dark"; applyTheme(nxt); store.set("theme",nxt);
+};
+
+// ---------- header ----------
+const age = (()=>{ const b=new Date(H.patient.dob+"T00:00:00"), n=new Date(); let a=n.getFullYear()-b.getFullYear(); if(n<new Date(n.getFullYear(),b.getMonth(),b.getDate())) a--; return a; })();
+$("#pname").textContent = H.patient.name;
+$("#psub").textContent = `${age} y · ${H.patient.sex} · CMC ${H.patient.ids[0].value} · updated ${fmtDate(H.patient.lastUpdated)}`;
+
+const VIEWS = [
+  ["story","Overview"],["timeline","Timeline"],["reports","Reports"],["conditions","Conditions"],
+  ["medicines","Medicines"],["medguide","Medicine guide"],["labs","Lab values"],["diet","Diet"],["questions","For the doctor"],["progress","Progress"]
+];
+function renderTabs(cur){
+  $("#tabs").innerHTML = VIEWS.map(([k,l])=>`<a href="#${k}" class="${k===cur?"on":""}">${l}</a>`).join("");
+  const on = $("#tabs a.on"); if(on) on.scrollIntoView({block:"nearest",inline:"center"});
+}
+
+// ---------- shared bits ----------
+function docChips(ids){
+  if(!ids||!ids.length) return "";
+  return `<div class="doc-links">${ids.map(id=>{const d=docById[id]; if(!d) return "";
+    return `<a class="doc-chip" href="#reports/${d.id}"><img src="${thumb(d.pages[0])}" alt="" loading="lazy">${esc(d.title)}</a>`;}).join("")}</div>`;
+}
+function reviewBanner(){
+  const ev = H.timeline.find(e=>e.phase==="upcoming"); if(!ev) return "";
+  const days = Math.round((new Date(ev.sortDate+"T00:00:00") - new Date(new Date().toDateString()))/864e5);
+  const when = days>0?`in about <b>${days} days</b>`:(days===0?"<b>today</b>":`<b>${-days} days ago</b>`);
+  return `<div class="banner up"><div class="b-ico">📅</div><div><b>${esc(ev.title)}</b>: due ${when} (${esc(ev.date.replace("due ",""))}). ${esc(ev.summary)}</div></div>`;
+}
+function emergencyBanner(){
+  const e=H.emergency;
+  return `<div class="banner em"><div class="b-ico">🚨</div><div><b>Go to the nearest hospital immediately if:</b>
+  <ul>${e.signs.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
+  <div class="small" style="margin-top:6px">CMC 24×7 helpline: <b>${esc(e.cmcHelpline)}</b> · CMC ambulance: ${esc(e.cmcAmbulance)}</div></div></div>`;
+}
+
+// ---------- brain diagram (medulla) ----------
+const BRAIN_SVG = `
+<svg class="diagram" viewBox="40 0 540 290" role="img" aria-label="Diagram: where the left lateral medulla is, and why symptoms appear on both sides">
+  <style>
+    .s-ink{fill:var(--ink)} .s-ink2{fill:var(--ink-2)} .s-line{stroke:var(--ink-3)} .s-brain{fill:var(--surface-2);stroke:var(--ink-3)}
+    .s-hit{fill:var(--bad)} .s-l{stroke:var(--bad)} .s-r{stroke:var(--vellore)}
+  </style>
+  <path class="s-brain" stroke-width="1.5" d="M60,120 C60,50 130,22 200,26 C270,22 330,48 340,105 C346,140 318,166 280,170 L236,170 C232,184 230,198 228,214 L210,214 C208,196 206,182 202,170 L140,170 C90,168 60,150 60,120Z"/>
+  <rect x="207" y="214" width="22" height="58" rx="9" class="s-brain" stroke-width="1.5"/>
+  <circle cx="211" cy="200" r="7" class="s-hit"/>
+  <line x1="211" y1="200" x2="370" y2="70" class="s-line" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="372" y="62" class="s-ink" font-size="14" font-weight="700">Stroke here:</text>
+  <text x="372" y="80" class="s-ink2" font-size="13">LEFT lateral medulla</text>
+  <text x="372" y="96" class="s-ink2" font-size="13">(lowest part of brainstem)</text>
+  <text x="150" y="102" class="s-ink2" font-size="13" text-anchor="middle">Brain</text>
+  <text x="240" y="262" class="s-ink2" font-size="12">spinal cord</text>
+  <g font-size="13">
+    <line x1="300" y1="150" x2="356" y2="150" class="s-l" stroke-width="3"/><text x="362" y="154" class="s-ink">Left eyelid droops (Horner)</text>
+    <line x1="300" y1="178" x2="356" y2="178" class="s-l" stroke-width="3"/><text x="362" y="182" class="s-ink">Slurred speech</text>
+    <line x1="300" y1="206" x2="356" y2="206" class="s-r" stroke-width="3"/><text x="362" y="210" class="s-ink">RIGHT body numbness</text>
+    <text x="362" y="226" class="s-ink2" font-size="12">(feeling nerves cross sides</text>
+    <text x="362" y="241" class="s-ink2" font-size="12"> in the spinal cord)</text>
+  </g>
+</svg>`;
+
+// ---------- views ----------
+const V = {};
+
+V.story = () => {
+  const dx = H.conditions[0];
+  return `
+  ${reviewBanner()}
+  <div class="hero">
+    <div class="card">
+      <h3>Main diagnosis</h3>
+      <p class="big-dx">Small ischaemic stroke in the left lateral medulla (brainstem)</p>
+      <p class="muted small" style="margin:0 0 10px">Cause: small vessel disease · 5 April 2026 · diagnosis by CMC Vellore, June 2026 (see 'For the doctor' about the Dhaka MRI)</p>
+      ${BRAIN_SVG}
+    </div>
+    <div class="card">
+      <h3>At a glance</h3>
+      <dl class="facts">
+        <dt>Born</dt><dd>${fmtDate(H.patient.dob)} (${age} y)</dd>
+        <dt>Height / weight</dt><dd>${H.patient.heightCm} cm / ${H.patient.weightKg} kg (booklet 'desirable': 42–46 kg)</dd>
+        <dt>Stroke</dt><dd>5 Apr 2026, at home</dd>
+        <dt>First seen</dt><dd>BSH Dhaka Emergency (tests referred by Prof. N. C. Kundu)</dd>
+        <dt>Admitted</dt><dd>CMC Vellore, 1–5 Jun 2026</dd>
+        <dt>At discharge</dt><dd>Stable; full strength; mild left eyelid droop; mild right-side numbness</dd>
+        <dt>Key medicines</dt><dd>Aspirin 75 mg, Atorvastatin 10 mg</dd>
+        <dt>Next review</dt><dd>CMC Neurology, Dr. Aditya Nair, ~early Dec 2026</dd>
+        ${H.patient.ids.map(i=>`<dt>${esc(i.label)}</dt><dd>${esc(i.value)}</dd>`).join("")}
+      </dl>
+    </div>
+  </div>
+  ${H.story.map(s=>`<div class="card story-block"><h3>${esc(s.heading)}</h3><p>${s.body}</p></div>`).join("")}
+  ${emergencyBanner()}
+  <p class="footer-note">This is a family summary written from the scanned reports to help understand them. It is not medical advice. Always follow the treating doctors. Where reports disagree, see “For the doctor”.</p>`;
+};
+
+V.timeline = () => {
+  const items = [...H.timeline].sort((a,b)=>a.sortDate.localeCompare(b.sortDate));
+  const legend = [["background","Before"],["dhaka","Dhaka (BSH)"],["vellore","CMC Vellore"],["home","At home"],["upcoming","Upcoming"]];
+  return `
+  <h2 class="view-title">Timeline</h2>
+  <p class="lede">Everything in order, from the morning of the stroke to the next review. Click a report to see the scanned pages and the explanation.</p>
+  <div class="legend">${legend.map(([k,l])=>`<span class="ph-${k}"><i style="background:var(--c)"></i>${l}</span>`).join("")}</div>
+  <div class="tl">
+  ${items.map(e=>`
+    <div class="tl-item ph-${e.phase}" id="t-${e.id}">
+      <div class="tl-dot" style="background:var(--c)"></div>
+      <div class="card">
+        <div class="flex" style="justify-content:space-between"><span class="tl-date">${esc(e.date)}</span><span class="tl-place">${esc(e.place)}</span></div>
+        <div class="tl-title">${esc(e.title)}</div>
+        <p>${esc(e.summary)}</p>
+        ${e.details.length?`<ul>${e.details.map(d=>`<li>${esc(d)}</li>`).join("")}</ul>`:""}
+        ${docChips(e.docs)}
+      </div>
+    </div>`).join("")}
+  </div>`;
+};
+
+let reportFilter = "All";
+V.reports = (focus) => {
+  const hospitals = ["All","Bangladesh Specialized Hospital","CMC Vellore"];
+  const docs = [...H.documents].sort((a,b)=>a.date.localeCompare(b.date))
+    .filter(d=>reportFilter==="All"||d.hospital.startsWith(reportFilter));
+  return `
+  <h2 class="view-title">Reports</h2>
+  <p class="lede">Each scanned report with its key findings and a plain-language explanation. Tap a page to enlarge it, and tap underlined terms for meanings. ${H.documents.reduce((n,d)=>n+d.pages.length,0)} pages in total.</p>
+  <div class="filters">${hospitals.map(h=>`<button data-filter="${esc(h)}" class="${h===reportFilter?"on":""}">${esc(h==="All"?"All reports":h)}</button>`).join("")}</div>
+  ${docs.map(d=>`
+    <article class="card report ${d.hospital.startsWith("CMC")?"ph-vellore":"ph-dhaka"}" id="r-${d.id}" style="border-top:4px solid var(--c)">
+      <div class="report-head"><h3>${esc(d.title)}</h3><span class="pill">${esc(d.category)}</span></div>
+      <div class="meta">${fmtDate(d.date)} · ${esc(d.hospital)}${d.doctor?` · ${esc(d.doctor)}`:""}</div>
+      <div class="report-body">
+        <div><h4>What the report says</h4><ul class="kf">${d.keyFindings.map(k=>`<li>${esc(k)}</li>`).join("")}</ul></div>
+        <div><h4>In plain words</h4><div class="plain">${d.plain}</div></div>
+      </div>
+      ${d.terms&&d.terms.length?`<div class="terms">${d.terms.filter(t=>H.glossary[t]).map(t=>`<button class="term" data-term="${t}">${esc(H.glossary[t][0])}</button>`).join("")}</div>`:""}
+      <div class="thumbs">${d.pages.map((p,i)=>`<button data-doc="${d.id}" data-i="${i}" aria-label="Open page ${p}"><img src="${thumb(p)}" alt="${esc(d.title)} page ${i+1}" loading="lazy"><span class="pg">p.${p}</span></button>`).join("")}</div>
+    </article>`).join("")}`;
+};
+
+V.conditions = () => `
+  <h2 class="view-title">Conditions</h2>
+  <p class="lede">Every diagnosis found so far: what it is, where it stands, and what is being done about it.</p>
+  <div class="grid two">
+  ${H.conditions.map(c=>`
+    <div class="card cond">
+      <span class="pill st-${c.status}">${esc(c.statusLabel)}</span>
+      <h3 style="margin-top:8px">${esc(c.name)}</h3>
+      <dl>
+        ${c.since?`<dt>Since</dt><dd>${esc(c.since)}</dd>`:""}
+        <dt>What</dt><dd>${esc(c.what)}</dd>
+        ${c.now?`<dt>Now</dt><dd>${esc(c.now)}</dd>`:""}
+        <dt>Plan</dt><dd>${esc(c.plan)}</dd>
+      </dl>
+      ${docChips(c.docs)}
+    </div>`).join("")}
+  </div>`;
+
+V.medicines = () => {
+  const groups = [...new Set(H.medicines.map(m=>m.group))];
+  return `
+  <h2 class="view-title">Medicines</h2>
+  <p class="lede">As prescribed at CMC discharge on 5 June 2026. “Continue all medicines till review (unless instructed by your local doctor).” If anything changes, update this list. For benefits, side effects and what happens if a medicine is missed or stopped, see the <a href="#medguide">Medicine guide</a>.</p>
+  <div class="tbl-wrap stack"><table>
+    <thead><tr><th>Medicine</th><th>Dose</th><th>When</th><th>What it's for</th></tr></thead>
+    <tbody>
+    ${groups.map(g=>`<tr class="grp"><td colspan="4">${esc(g)}</td></tr>`+H.medicines.filter(m=>m.group===g).map(m=>`
+      <tr><td class="med-name">${esc(m.name)}</td><td class="num">${esc(m.dose)}</td><td>${esc(m.when)}</td>
+      <td>${esc(m.purpose)}${m.note?`<div class="med-note">${esc(m.note)}</div>`:""}</td></tr>`).join("")).join("")}
+    </tbody></table></div>
+  <h3 class="section-h">Medicines from before CMC: check status</h3>
+  <div class="tbl-wrap stack"><table><tbody>
+    ${H.previousMedicines.map(m=>`<tr><td class="med-name">${esc(m.name)}</td><td>${esc(m.note)}</td></tr>`).join("")}
+  </tbody></table></div>
+  <p class="footer-note">Descriptions explain what each medicine is generally used for. Doses and changes must come from her doctors.</p>`;
+};
+
+V.medguide = () => {
+  const G = window.MEDGUIDE; if(!G) return "<p>Medicine guide data not found.</p>";
+  const groups=[...new Set(G.meds.map(m=>m.group))];
+  const ul = a => `<ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+  const card = m => `<details class="mg"><summary><span class="mg-name">${esc(m.name)}</span><span class="mg-dose">${esc(m.strength)}</span></summary>
+    <div class="mg-body">
+      <div class="mg-sec full"><h4>Why CMC prescribed it</h4><p>${m.cmc}</p></div>
+      <div class="mg-sec"><h4>Benefits</h4>${ul(m.benefits)}</div>
+      <div class="mg-sec"><h4>Common side effects</h4>${ul(m.common)}</div>
+      <div class="mg-sec serious"><h4>Serious: get medical help</h4>${ul(m.serious)}</div>
+      <div class="mg-sec"><h4>Things to watch</h4>${ul(m.watch)}</div>
+      <div class="mg-sec stop full"><h4>If it's not taken or is stopped</h4><p>${m.ifStopped}</p></div>
+      <div class="mg-sec full"><h4>If a dose is missed</h4><p>${m.missed}</p></div>
+      <div class="mg-sec full mg-src"><h4>Sources</h4>${m.sources.map(([l,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(l)} ↗</a>`).join("")}</div>
+    </div></details>`;
+  return `
+  <h2 class="view-title">Medicine guide</h2>
+  <p class="lede">For each medicine on the CMC discharge list: why it was given, benefits, side effects, and what the official leaflets say about missing or stopping it. Everything comes from NHS / MedlinePlus leaflets (checked ${fmtDate(G.checked)}) or her CMC papers. Where a leaflet doesn't say something, we say so instead of guessing. <b>Never start, stop or change a medicine without her doctor.</b></p>
+  <div class="mg-keys">${G.keyPoints.map(k=>`<div class="mg-key ${k.tone}">${k.text}</div>`).join("")}</div>
+  ${groups.map(g=>`<div class="mg-group">${esc(g)}</div>`+G.meds.filter(m=>m.group===g).map(card).join("")).join("")}
+  <p class="footer-note">Side-effect lists are not complete, and not everyone gets them. In an emergency, use the warning signs on the Overview tab. Leaflets are UK/US sources; Indian brands may differ, so check each pack's leaflet.</p>`;
+};
+
+V.labs = () => {
+  const groups = [...new Set(H.labs.map(l=>l.group))];
+  const cell = (v,flag) => v==null?`<span class="muted">—</span>`:`<span class="v ${flag}">${esc(v)}</span>`;
+  return `
+  <h2 class="view-title">Lab values</h2>
+  <p class="lede">Blood test results side by side, Dhaka (April) vs CMC (late May / early June). Red = outside the normal range, amber = borderline.</p>
+  <div class="tbl-wrap scroll"><table>
+    <thead><tr><th>Test</th>${H.labDates.map(d=>`<th>${esc(d.label)}<div style="text-transform:none;font-weight:400">${esc(d.where)}</div></th>`).join("")}<th>Normal</th><th>Meaning</th></tr></thead>
+    <tbody>
+    ${groups.map(g=>`<tr class="grp"><td colspan="${3+H.labDates.length}">${esc(g)}</td></tr>`+H.labs.filter(l=>l.group===g).map(l=>`
+      <tr><td><b>${esc(l.name)}</b>${l.unit?` <span class="muted small">${esc(l.unit)}</span>`:""}</td>
+      ${H.labDates.map(d=>`<td class="num">${cell(l[d.key], l[d.key]==null?"":((l.flags&&l.flags[d.key]!=null)?l.flags[d.key]:l.flag))}</td>`).join("")}
+      <td class="num muted small">${esc(l.ref)}</td><td class="small">${esc(l.explain)}</td></tr>`).join("")).join("")}
+    </tbody></table></div>
+  <p class="footer-note">Normal ranges differ slightly between labs. The ranges shown are from the reports themselves.</p>`;
+};
+
+V.diet = () => {
+  const d=H.diet;
+  return `
+  <h2 class="view-title">Diet plan</h2>
+  <p class="lede">From the CMC dietitian's booklet (3 Jun 2026): <b>${esc(d.headline)}</b>.</p>
+  <div class="grid two">
+    <div class="card"><h3 style="margin-top:0">Daily limits</h3><ul style="margin:0;padding-left:20px">${d.targets.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>
+    <div class="card"><h3 style="margin-top:0">Low-calorie vegetables (eat freely in portions)</h3><p style="margin:0" class="small">${esc(d.lowCalVeg)}</p></div>
+  </div>
+  <h3 class="section-h">A day of meals</h3>
+  <div class="card">${d.day.map(m=>`<div class="meal"><div class="t">${esc(m.time)}</div><div><div class="m">${esc(m.meal)}</div><div class="small">${esc(m.food)}</div></div></div>`).join("")}</div>
+  <h3 class="section-h">Avoid</h3><div class="chips no">${d.avoid.map(a=>`<span>${esc(a)}</span>`).join("")}</div>
+  <h3 class="section-h">Free foods</h3><div class="chips yes">${d.free.map(a=>`<span>${esc(a)}</span>`).join("")}</div>
+  ${docChips(["cmc-diet"])}`;
+};
+
+V.questions = () => {
+  const done = store.get("qdone",{});
+  return `
+  <h2 class="view-title">For the doctor</h2>
+  <p class="lede">Places where the reports disagree or leave something unclear. Take this list to the next appointment. Tick each one once it's answered (ticks are saved in this browser only).</p>
+  ${reviewBanner()}
+  <div class="grid">
+  ${H.questions.map((q,i)=>`
+    <div class="card q ${done[i]?"done":""}">
+      <input type="checkbox" data-q="${i}" ${done[i]?"checked":""} aria-label="Answered">
+      <div><div class="topic">${esc(q.topic)}</div><div class="qt">${esc(q.text)}</div>${docChips(q.docs)}</div>
+    </div>`).join("")}
+  </div>
+  <h3 class="section-h">Documents we still need</h3>
+  <div class="card"><ul style="margin:0;padding-left:20px">${H.missing.map(m=>`<li>${esc(m)}</li>`).join("")}</ul></div>
+  <h3 class="section-h">Bring to the CMC review</h3>
+  <div class="card small">All reports in this record (originals) · MRI/CT CDs or films from Dhaka · the yellow diet booklet · current medicine strips · home BP readings · date of the zoledronic acid drip · this question list.<br><br>
+  Appointments: the discharge summary says <b>www.cmch-vellore.edu → Patient Services → Appointments</b> (needs net banking or a card); on the current site look for <b>Patient Portal / Book appointment</b>. Neurology office: A Block, 7th floor, Ranipet Campus.</div>`;
+};
+
+V.progress = () => {
+  const rows=[...H.progress].sort((a,b)=>a.date.localeCompare(b.date));
+  return `
+  <h2 class="view-title">Progress</h2>
+  <p class="lede">Readings and check-ups over time. Send new BP/weight readings, symptoms, or new reports, and they'll be added here and to the timeline.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Date</th><th>BP</th><th>Pulse</th><th>Weight</th><th>Note</th></tr></thead>
+    <tbody>${rows.map(r=>`<tr><td class="num">${fmtDate(r.date)}</td><td class="num">${esc(r.bp??"—")}</td><td class="num">${esc(r.pulse??"—")}</td><td class="num">${r.weightKg!=null?esc(r.weightKg)+" kg":"—"}</td><td>${esc(r.note)}</td></tr>`).join("")}</tbody>
+  </table></div>
+  <h3 class="section-h">Things worth tracking at home</h3>
+  <div class="grid two">
+    <div class="card small"><b>Blood pressure</b>: a few mornings a week, seated and rested. Write down the date, the time, and both numbers.</div>
+    <div class="card small"><b>Weight</b>: once a week, same scale, morning. Ask the doctor for a safe target (booklet's 'desirable weight' is 42–46 kg).</div>
+    <div class="card small"><b>Symptoms</b>: eyelid droop, numbness on the right side, speech, dizziness, falls, sleep, mood, bowel habit.</div>
+    <div class="card small"><b>Milestones</b>: zoledronic drip date, end of the weekly vitamin D, physio sessions, any new tests.</div>
+  </div>`;
+};
+
+// ---------- router ----------
+// Remember where the reader was, so "Back" returns to the exact spot.
+let cameFrom = null;     // {hash, label} of the page the reader jumped from
+let restoreY = null;     // scroll position to restore on back navigation
+try { history.scrollRestoration = "manual"; } catch(_) {}
+document.addEventListener("click", e=>{
+  const a = e.target.closest('a[href^="#"]'); if(!a || a.id==="backbar-btn") return;
+  if(a.closest("#tabs")){ cameFrom = null; return; }
+  if(a.getAttribute("href")===(location.hash||"#story")) return;
+  try { history.replaceState({y: scrollY}, ""); } catch(_) {}
+  const cur = (location.hash.slice(1)||"story").split("/")[0];
+  const lab = (VIEWS.find(([k])=>k===cur)||[,"previous page"])[1];
+  cameFrom = { hash: location.hash||"#story", label: lab };
+}, true);
+addEventListener("popstate", e=>{ restoreY = (e.state && typeof e.state.y==="number") ? e.state.y : null; });
+function backBar(){
+  if(cameFrom && cameFrom.hash===(location.hash||"#story")) cameFrom = null;
+  if(!cameFrom) return "";
+  return `<div class="backbar"><a href="#" id="backbar-btn">← Back to ${esc(cameFrom.label)}, where you left off</a></div>`;
+}
+document.addEventListener("click", e=>{
+  if(!e.target.closest("#backbar-btn")) return;
+  e.preventDefault(); cameFrom = null; history.back();
+});
+
+function route(){
+  const [view, sub] = (location.hash.slice(1)||"story").split("/");
+  const v = V[view]?view:"story";
+  renderTabs(v);
+  $("#view").innerHTML = backBar() + V[v](sub);
+  if(restoreY!=null){ const y=restoreY; restoreY=null; requestAnimationFrame(()=>window.scrollTo(0,y)); return; }
+  if(sub){ const el = document.getElementById((v==="reports"?"r-":"t-")+sub); if(el){ el.scrollIntoView({block:"start"}); el.animate([{boxShadow:"0 0 0 3px var(--accent)"},{boxShadow:"var(--shadow)"}],{duration:1600}); } }
+  else window.scrollTo(0,0);
+}
+addEventListener("hashchange", route);
+
+// ---------- events ----------
+document.addEventListener("click", e=>{
+  const f = e.target.closest("[data-filter]");
+  if(f){ reportFilter=f.dataset.filter; $("#view").innerHTML=V.reports(); return; }
+  const t = e.target.closest("[data-doc]");
+  if(t){ openLB(t.dataset.doc, +t.dataset.i); return; }
+  const term = e.target.closest("[data-term]");
+  if(term){ showPop(term); e.stopPropagation(); return; }
+  hidePop();
+});
+document.addEventListener("change", e=>{
+  if(e.target.matches("[data-q]")){ const d=store.get("qdone",{}); d[e.target.dataset.q]=e.target.checked; store.set("qdone",d); e.target.closest(".q").classList.toggle("done",e.target.checked); }
+});
+
+// glossary popover
+const pop=$("#pop");
+function showPop(el){
+  const g=H.glossary[el.dataset.term]; if(!g) return;
+  pop.innerHTML=`<b>${esc(g[0])}</b>${esc(g[1])}`; pop.style.display="block";
+  const r=el.getBoundingClientRect(), w=Math.min(320,innerWidth-32);
+  pop.style.maxWidth=w+"px";
+  let left=Math.min(Math.max(16,r.left), innerWidth-w-16);
+  pop.style.left=left+"px";
+  const below=r.bottom+8, h=pop.offsetHeight;
+  pop.style.top=(below+h>innerHeight-8? r.top-h-8 : below)+"px";
+}
+function hidePop(){ pop.style.display="none"; }
+addEventListener("scroll",hidePop,{passive:true});
+
+// lightbox
+let lbDoc=null, lbI=0;
+function openLB(id,i){ lbDoc=docById[id]; lbI=i; $("#lb").classList.add("open"); document.body.style.overflow="hidden"; showLB(); }
+function showLB(){
+  const p=lbDoc.pages[lbI];
+  $("#lbImg").src=full(p); $("#lbOpen").href=full(p);
+  $("#lbCap").textContent=`${lbDoc.title} · page ${lbI+1} of ${lbDoc.pages.length} (scan p.${p})`;
+  $("#lbStage").classList.remove("zoom"); $("#lbStage").scrollTo(0,0);
+}
+function closeLB(){ $("#lb").classList.remove("open"); document.body.style.overflow=""; }
+$("#lbClose").onclick=closeLB;
+$("#lbPrev").onclick=()=>{ lbI=(lbI-1+lbDoc.pages.length)%lbDoc.pages.length; showLB(); };
+$("#lbNext").onclick=()=>{ lbI=(lbI+1)%lbDoc.pages.length; showLB(); };
+$("#lbImg").onclick=()=>$("#lbStage").classList.toggle("zoom");
+addEventListener("keydown",e=>{
+  if(!$("#lb").classList.contains("open")) return;
+  if(e.key==="Escape") closeLB(); if(e.key==="ArrowLeft") $("#lbPrev").click(); if(e.key==="ArrowRight") $("#lbNext").click();
+});
+
+route();
+})();
+</script>
+</body>
+</html>
