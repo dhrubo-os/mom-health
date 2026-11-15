@@ -66,6 +66,13 @@ p.lede{color:var(--ink-2);margin:0 0 20px;max-width:760px}
 .small{font-size:13.5px}
 
 /* banners */
+.banner.bone{background:var(--bad-soft);border:2px solid color-mix(in srgb,var(--bad) 55%,transparent)}
+.banner.bone p{margin:6px 0}
+.bone-h{font-weight:700;font-size:16.5px;color:var(--bad);margin-bottom:2px}
+.bone-act{background:var(--surface);border-radius:8px;padding:8px 12px}
+.bone-more summary{cursor:pointer;font-weight:600;color:var(--bad);margin:6px 0}
+.bone-more h4{margin:10px 0 4px;font-size:14px}
+.bone-more ul{margin:0;padding-left:20px}
 .banner{display:flex;gap:14px;align-items:flex-start;border-radius:var(--r);padding:14px 18px;margin-bottom:14px}
 .banner .b-ico{font-size:22px;line-height:1.2}
 .banner.up{background:var(--up-soft);border:1px solid color-mix(in srgb,var(--up) 35%,transparent)}
@@ -197,6 +204,10 @@ tr.grp td{background:var(--surface-2);font-weight:650;font-size:13px;color:var(-
 /* tooltip popover */
 .pop{position:fixed;z-index:120;max-width:320px;background:var(--ink);color:var(--bg);padding:10px 12px;border-radius:10px;font-size:13.5px;line-height:1.45;box-shadow:0 8px 24px rgba(0,0,0,.25);display:none}
 .pop b{display:block;margin-bottom:2px}
+.xref{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.gl-demo{border-bottom:1.5px dotted var(--accent)}
+.gl{border-bottom:1.5px dotted var(--accent);cursor:help;border-radius:2px}
+.gl:hover,.gl:focus{background:color-mix(in srgb,var(--accent) 14%,transparent);outline:none}
 
 .mg-keys{display:grid;gap:8px;margin:0 0 22px}
 .mg-key{padding:11px 14px;border-radius:10px;font-size:14.5px;line-height:1.5;border:1px solid var(--line);background:var(--surface)}
@@ -256,6 +267,7 @@ details.mg[open]>summary::before{transform:rotate(90deg)}
 
 <script src="data/health-data.js"></script>
 <script src="data/med-guide.js"></script>
+<script src="data/terms.js"></script>
 <script>
 (function(){
 const H = window.HEALTH;
@@ -306,6 +318,22 @@ function reviewBanner(){
   const when = days>0?`in about <b>${days} days</b>`:(days===0?"<b>today</b>":`<b>${-days} days ago</b>`);
   return `<div class="banner up"><div class="b-ico">📅</div><div><b>${esc(ev.title)}</b>: due ${when} (${esc(ev.date.replace("due ",""))}). ${esc(ev.summary)}</div></div>`;
 }
+function boneBanner(full=true){
+  const b=H.boneAlert; if(!b) return "";
+  if(!full) return `<div class="banner bone"><div class="b-ico">🦴</div><div><b>${esc(b.title)}</b> <a href="#story">See what to watch for and how to lower the risk →</a></div></div>`;
+  return `<div class="banner bone"><div class="b-ico">🦴</div><div>
+    <div class="bone-h">${esc(b.title)}</div>
+    ${b.facts.map(f=>`<p>${f}</p>`).join("")}
+    <p class="bone-act">👉 ${b.action}</p>
+    <details class="bone-more"><summary>Signs of a spine fracture, how to lower the risk, and when to get help</summary>
+      <h4>Signs to watch for</h4><p>${b.signs}</p>
+      <h4>Lowering the risk of a fall at home (NHS)</h4><ul>${b.prevent.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <h4>When to get help</h4><p>${b.help}</p>
+      <p class="small">Sources: ${b.sources.map(([l,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(l)} ↗</a>`).join(" · ")}</p>
+    </details>
+    ${docChips(b.docs)}
+  </div></div>`;
+}
 function emergencyBanner(){
   const e=H.emergency;
   return `<div class="banner em"><div class="b-ico">🚨</div><div><b>Go to the nearest hospital immediately if:</b>
@@ -330,7 +358,7 @@ const BRAIN_SVG = `
   <text x="150" y="102" class="s-ink2" font-size="13" text-anchor="middle">Brain</text>
   <text x="240" y="262" class="s-ink2" font-size="12">spinal cord</text>
   <g font-size="13">
-    <line x1="300" y1="150" x2="356" y2="150" class="s-l" stroke-width="3"/><text x="362" y="154" class="s-ink">Left eyelid droops (Horner)</text>
+    <line x1="300" y1="150" x2="356" y2="150" class="s-l" stroke-width="3"/><text x="362" y="154" class="s-ink">Left eyelid droops (probable Horner)</text>
     <line x1="300" y1="178" x2="356" y2="178" class="s-l" stroke-width="3"/><text x="362" y="182" class="s-ink">Slurred speech</text>
     <line x1="300" y1="206" x2="356" y2="206" class="s-r" stroke-width="3"/><text x="362" y="210" class="s-ink">RIGHT body numbness</text>
     <text x="362" y="226" class="s-ink2" font-size="12">(feeling nerves cross sides</text>
@@ -344,6 +372,7 @@ const V = {};
 V.story = () => {
   const dx = H.conditions[0];
   return `
+  ${boneBanner()}
   ${reviewBanner()}
   <div class="hero">
     <div class="card">
@@ -360,7 +389,7 @@ V.story = () => {
         <dt>Stroke</dt><dd>5 Apr 2026, at home</dd>
         <dt>First seen</dt><dd>BSH Dhaka Emergency (tests referred by Prof. N. C. Kundu)</dd>
         <dt>Admitted</dt><dd>CMC Vellore, 1–5 Jun 2026</dd>
-        <dt>At discharge</dt><dd>Stable; full strength; mild left eyelid droop; mild right-side numbness</dd>
+        <dt>At discharge</dt><dd>'Stable' (on CMC's examination: full strength; mild left eyelid droop; mild right-side numbness)</dd>
         <dt>Key medicines</dt><dd>Aspirin 75 mg, Atorvastatin 10 mg</dd>
         <dt>Next review</dt><dd>CMC Neurology, Dr. Aditya Nair, ~early Dec 2026</dd>
         ${H.patient.ids.map(i=>`<dt>${esc(i.label)}</dt><dd>${esc(i.value)}</dd>`).join("")}
@@ -377,7 +406,8 @@ V.timeline = () => {
   const legend = [["background","Before"],["dhaka","Dhaka (BSH)"],["vellore","CMC Vellore"],["home","At home"],["upcoming","Upcoming"]];
   return `
   <h2 class="view-title">Timeline</h2>
-  <p class="lede">Everything in order, from the morning of the stroke to the next review. Click a report to see the scanned pages and the explanation.</p>
+  <p class="lede">Everything in order, from the morning of the stroke to the next review. Click a report to see the scanned pages and the explanation. Words with a <span class="gl-demo">dotted underline</span> can be tapped for a plain explanation.</p>
+  ${boneBanner(false)}
   <div class="legend">${legend.map(([k,l])=>`<span class="ph-${k}"><i style="background:var(--c)"></i>${l}</span>`).join("")}</div>
   <div class="tl">
   ${items.map(e=>`
@@ -419,6 +449,7 @@ V.reports = (focus) => {
 V.conditions = () => `
   <h2 class="view-title">Conditions</h2>
   <p class="lede">Every diagnosis found so far: what it is, where it stands, and what is being done about it.</p>
+  ${boneBanner(false)}
   <div class="grid two">
   ${H.conditions.map(c=>`
     <div class="card cond">
@@ -547,6 +578,70 @@ V.progress = () => {
   </div>`;
 };
 
+// ---------- tap-to-explain terms ----------
+const TERM_RX = (window.TERMS||[]).map(([key,pat,flags,title,text])=>{
+  if(title && !H.glossary[key]) H.glossary[key]=[title,text];
+  return H.glossary[key] ? {key, rx:new RegExp(pat, (flags||"")+"g")} : null;
+}).filter(Boolean);
+const TERM_SKIP = "a,button,summary,svg,script,style,textarea,input,select,.gl,.term,.pop,.backbar,h2.view-title";
+const TERM_BOX = ".card,.tl-item,details,tr,.banner,.mg-key,.lede,.mg-sec,li";
+function linkTerms(root){
+  if(!root || !TERM_RX.length) return;
+  const seen = new Map();   // container -> Set of term keys already underlined
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode(n){
+    if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+    return n.parentElement.closest(TERM_SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; }});
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  for(let node of nodes){
+    const box = node.parentElement.closest(TERM_BOX) || root;
+    let used = seen.get(box); if(!used){ used=new Set(); seen.set(box,used); }
+    while(node){
+      const txt=node.nodeValue; let best=null;
+      for(const t of TERM_RX){
+        if(used.has(t.key)) continue;
+        t.rx.lastIndex=0; const m=t.rx.exec(txt);
+        if(m && m[0] && (!best || m.index<best.i)) best={i:m.index, len:m[0].length, key:t.key};
+      }
+      if(!best) break;
+      used.add(best.key);
+      const mid = node.splitText(best.i); const rest = mid.splitText(best.len);
+      const sp = document.createElement("span");
+      sp.className="gl"; sp.dataset.term=best.key; sp.tabIndex=0; sp.setAttribute("role","button");
+      sp.title="Tap for a plain explanation"; sp.textContent=mid.nodeValue;
+      mid.replaceWith(sp); node = rest;
+    }
+  }
+}
+document.addEventListener("keydown", e=>{ const t=e.target.closest&&e.target.closest(".gl"); if(t&&(e.key==="Enter"||e.key===" ")){ e.preventDefault(); showPop(t);} });
+
+// ---------- links between pages ("see 'For the doctor'" etc.) ----------
+const REF_LINKS = [
+  [/['‘“"]For the doctor['’”"](?: (?:list|page|section))?/g, "#questions"],
+  [/the warning on the Overview page|the warning signs on the Overview tab|Overview tab/g, "#story"],
+  [/the ['‘]Diet['’] section/g, "#diet"],
+  [/(?:the )?['‘]Medicine guide['’]/g, "#medguide"],
+];
+function linkRefs(root){
+  const view = (location.hash.slice(1)||"story").split("/")[0];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode(n){
+    return n.parentElement.closest("a,button,summary,h2,.pop,.backbar,script,style") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; }});
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  for(let node of nodes){
+    while(node){
+      let best=null;
+      for(const [rx,href] of REF_LINKS){
+        if(href==="#"+view) continue;               // don't link a page to itself
+        rx.lastIndex=0; const m=rx.exec(node.nodeValue);
+        if(m && (!best || m.index<best.i)) best={i:m.index,len:m[0].length,href};
+      }
+      if(!best) break;
+      const mid=node.splitText(best.i), rest=mid.splitText(best.len);
+      const a=document.createElement("a"); a.href=best.href; a.className="xref"; a.textContent=mid.nodeValue;
+      mid.replaceWith(a); node=rest;
+    }
+  }
+}
+
 // ---------- router ----------
 // Remember where the reader was, so "Back" returns to the exact spot.
 let cameFrom = null;     // {hash, label} of the page the reader jumped from
@@ -577,6 +672,7 @@ function route(){
   const v = V[view]?view:"story";
   renderTabs(v);
   $("#view").innerHTML = backBar() + V[v](sub);
+  linkRefs($("#view")); linkTerms($("#view"));
   if(restoreY!=null){ const y=restoreY; restoreY=null; requestAnimationFrame(()=>window.scrollTo(0,y)); return; }
   if(sub){ const el = document.getElementById((v==="reports"?"r-":"t-")+sub); if(el){ el.scrollIntoView({block:"start"}); el.animate([{boxShadow:"0 0 0 3px var(--accent)"},{boxShadow:"var(--shadow)"}],{duration:1600}); } }
   else window.scrollTo(0,0);
@@ -586,11 +682,11 @@ addEventListener("hashchange", route);
 // ---------- events ----------
 document.addEventListener("click", e=>{
   const f = e.target.closest("[data-filter]");
-  if(f){ reportFilter=f.dataset.filter; $("#view").innerHTML=V.reports(); return; }
+  if(f){ reportFilter=f.dataset.filter; $("#view").innerHTML=V.reports(); linkRefs($("#view")); linkTerms($("#view")); return; }
   const t = e.target.closest("[data-doc]");
   if(t){ openLB(t.dataset.doc, +t.dataset.i); return; }
   const term = e.target.closest("[data-term]");
-  if(term){ showPop(term); e.stopPropagation(); return; }
+  if(term){ e.preventDefault(); showPop(term); e.stopPropagation(); return; }
   hidePop();
 });
 document.addEventListener("change", e=>{

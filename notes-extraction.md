@@ -69,3 +69,6 @@ Verified: Mego-XL = capsule, methylcobalamin 1500mcg + alpha-lipoic acid 100mg +
 
 ## Fact-check 15 Nov 2026
 All 42 pages re-read independently (4 parallel checks). Numbers/dates/page map confirmed. Corrections applied to data/health-data.js: MRI brainstem 'normal' vs CMC 'medullary infarct' conflict; Kundu = referring doctor only (specialty not printed); sugar struck out in diet booklet; zoledronic 4 mg vs usual 5 mg flagged; kidney size contradiction; lab reference ranges now per-hospital; over-certain wording softened.
+
+## Fact-check round 2 (15 Nov 2026, Fable)
+Re-verified: scan-derived new content (no wrong numbers; ~15 wording fixes to match reports exactly), 206 tooltip definitions (ST elevation, DWI, MRA, allergic reaction, eGFR, HbA1c cut-offs corrected; wrong-match regexes fixed), medicine guide vs NHS/MedlinePlus/FDA (9 wording fixes, dead 1mg link replaced, ~20 missing safety points added incl. pregabalin >65 caution and kidney cautions).

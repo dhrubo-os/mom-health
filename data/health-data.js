@@ -26,11 +26,11 @@ window.HEALTH = {
   story: [
     {
       heading: "What happened, in one paragraph",
-      body: "On the morning of 5 April 2026, while making breakfast, Ma's left upper eyelid suddenly drooped, her speech became slurred, and the right side of her body went partly numb. These were signs of a <b>small stroke in the brainstem</b>, the stalk at the base of the brain that joins it to the spinal cord. CMC Vellore diagnosed a <b>left lateral medullary infarct</b>: a tiny artery feeding the <b>left side of the medulla</b> (the lowest part of the brainstem) got blocked. CMC classed the cause as <b>small vessel disease</b>: long-term wear on the tiny arteries deep in the brain, mainly from long-term high blood pressure and ageing (cholesterol, diabetes and smoking add to it). CMC's heart echo, ECG and neck-artery Doppler were normal, so a clot from the heart or a narrowed neck artery is considered <b>unlikely</b>. (Note: the written Dhaka MRI report called the brainstem normal. See 'For the doctor'.)"
+      body: "On the morning of 5 April 2026, while making breakfast, Ma's left upper eyelid suddenly drooped, her speech became slurred, and the right side of her body went partly numb. These were signs of a <b>small stroke in the brainstem</b>, the stalk at the base of the brain that joins it to the spinal cord. CMC Vellore diagnosed a <b>left lateral medullary infarct</b>: a tiny artery feeding the <b>left side of the medulla</b> (the lowest part of the brainstem) got blocked. CMC classed the cause as <b>small vessel disease</b>: long-term wear on the tiny arteries deep in the brain, mainly from long-term high blood pressure and ageing (cholesterol, diabetes and smoking add to it). CMC's heart echo, ECG and neck-artery Doppler were normal, which (our reading, not CMC's words) makes a clot from the heart or a narrowed neck artery less likely; CMC classed the cause as small vessel disease. (Note: the written Dhaka MRI report called the brainstem normal. See 'For the doctor'.)"
     },
     {
       heading: "Why the symptoms were on 'opposite' sides",
-      body: "This is the part that confuses most families. The left side of the medulla holds three things packed close together: (1) the nerve pathway that keeps the <b>left eyelid</b> lifted, (2) the pathway carrying pain and temperature feeling from the <b>right side of the body</b> (those nerves cross over lower down, in the spinal cord), and (3) nerves for the muscles of speech. One small blockage there explains all three symptoms together: left eye drooping, right-side numbness, and slurred speech. Doctors call this pattern <b>lateral medullary syndrome</b> (Wallenberg syndrome). The drooping eyelid is part of what's called <b>Horner syndrome</b>."
+      body: "This is the part that confuses most families. The left side of the medulla holds three things packed close together: (1) the nerve pathway that keeps the <b>left eyelid</b> lifted, (2) the pathway carrying pain and temperature feeling from the <b>right side of the body</b> (those nerves cross over lower down, in the spinal cord), and (3) nerves for the muscles of speech. One small blockage there explains all three symptoms together: left eye drooping, right-side numbness, and slurred speech. Doctors call this pattern <b>lateral medullary syndrome</b> (Wallenberg syndrome). CMC wrote that the drooping eyelid is 'suggestive of <b>probable Horner syndrome</b>'."
     },
     {
       heading: "How serious was it?",
@@ -38,17 +38,43 @@ window.HEALTH = {
     },
     {
       heading: "What the scans also found (mostly background, age-related)",
-      body: "The brain scans also showed <b>old, 'silent' tiny strokes</b> (lacunar infarcts) deep in the brain and <b>white-matter changes</b>. These are the same small-vessel disease, built up quietly over years, and they show why controlling blood pressure and cholesterol matters so much now. A possible tiny <b>2.2 mm bulge in a brain artery (aneurysm)</b> seen on the Dhaka MRA was <b>checked again at CMC with a CT angiogram and was not seen</b>. That is reassuring. (Very small aneurysms can be hard to see on CT angiography, so ask whether any repeat scan is ever needed.)"
+      body: "The brain scans also showed <b>old, 'silent' tiny strokes</b> (lacunar infarcts) deep in the brain and <b>white-matter changes</b>. These are the same small-vessel disease, built up quietly over years, and they show why controlling blood pressure and cholesterol matters so much now. A possible tiny <b>2.2 mm bulge in a brain artery (aneurysm)</b> seen on the Dhaka MRA was checked again: CMC's discharge summary says a <b>CT angiogram 'did not demonstrate any aneurysmal dilatation'</b> (the report itself, and where/when it was done, aren't in the scans). That is reassuring. (Very small aneurysms can be hard to see on CT angiography, so ask whether any repeat scan is ever needed.)"
     },
     {
       heading: "Other health problems CMC looked at during the same admission",
-      body: "CMC used the admission for a full check-up. <b>Osteoporosis</b> (thin bones) was confirmed in the spine, with a high fracture risk, so a bone-strengthening drip (<b>zoledronic acid</b>) plus calcium and vitamin D were advised. The old <b>Hepatitis C antibody</b> result was checked: the virus itself is <b>not present</b> in the blood, the liver stiffness scan was normal, and no antiviral treatment is needed. The long-standing <b>bowel problems</b> were judged to be <b>probable</b> IBS. <b>Joint and body pains</b> were considered more likely due to wear-and-tear (degenerative) joint and spine disease. <b>Anxiety and poor sleep</b> were linked to stress, and medicines were adjusted."
+      body: "CMC used the admission for a full check-up. <b>Osteoporosis</b> (thin bones) was confirmed in the spine, with a high fracture risk, so a bone-strengthening drip (<b>zoledronic acid</b>) plus calcium and vitamin D were advised. The old <b>Hepatitis C antibody</b> result was checked: the virus itself is <b>not present</b> in the blood, the liver stiffness scan was normal, and there is 'no indication for antivirals at present'. The long-standing <b>bowel problems</b> were judged to be <b>probable</b> IBS. <b>Joint and body pains</b> were considered more likely due to wear-and-tear (degenerative) joint and spine disease. <b>Anxiety and poor sleep</b> were linked to stress, and medicines were adjusted."
     },
     {
       heading: "What matters most from here",
-      body: "1) CMC prescribed <b>aspirin and a statin</b> as the stroke-prevention medicines; <b>blood pressure</b> control is equally important (and no BP tablet is named on the discharge sheet, so confirm it). 2) Keep <b>cholesterol</b> controlled. 3) Follow the <b>low-salt, low-fat, 1300-calorie diet</b>. The booklet lists a 'desirable weight' of 42–46 kg (she was 62 kg); ask the doctor or dietitian what a realistic, safe goal is. 4) Keep up <b>physiotherapy</b>. 5) Make sure the <b>zoledronic acid drip</b> has been given. 6) <b>Book the CMC neurology review (due around early December 2026)</b>. 7) Know the <b>warning signs</b> that need an emergency visit."
+      body: "1) CMC prescribed <b>aspirin and a statin</b> as the stroke-prevention medicines; <b>blood pressure</b> control is equally important (and no BP tablet is named on the discharge sheet, so confirm it). 2) Keep <b>cholesterol</b> controlled. 3) Follow the <b>low-salt, low-fat, 1300-calorie diet</b>. The booklet lists a 'desirable weight' of 42–46 kg (she was 62 kg); ask the doctor or dietitian what a realistic, safe goal is. 4) Keep up <b>physiotherapy</b>. 5) <b>Arrange the zoledronic acid bone drip. It has not been given yet</b>, and her spine fracture risk is high (see the warning above). 6) <b>Book the CMC neurology review (due around early December 2026)</b>. 7) Know the <b>warning signs</b> that need an emergency visit."
     }
   ],
+
+  // ---------------------------------------------------------------------------
+  // BONE / SPINE FRACTURE ALERT (shown on Overview, Conditions, Timeline)
+  // ---------------------------------------------------------------------------
+  boneAlert: {
+    title: "High risk of a broken bone in the spine (backbone), and the bone drip hasn't been given yet",
+    facts: [
+      "Her bone scan (DEXA, 2 Jun 2026) shows <b>osteoporosis in the lower spine</b>, T-score −3.4. The report itself prints <b>'Fracture Risk: High'</b>. The hip and forearm show thinning (osteopenia).",
+      "CMC advised a <b>zoledronic acid drip</b> to strengthen her bones, as well as calcium (Shelcal) and vitamin D (Calcirol). <b>The family says the drip has not been given yet</b> (as of 15 Nov 2026)."
+    ],
+    signs: "NHS: osteoporosis often has no symptoms, and 'often, the first symptom will be breaking a bone after a minor fall or injury'. Small breaks in the spine can show as <b>back pain, a curved spine or hunched posture, or getting shorter</b>.",
+    prevent: [
+      "Shoes or slippers that fit well, don't slip off, and have a good grip",
+      "A non-slip mat in the bath or shower; grab rails in the bathroom and rails on steps",
+      "No loose rugs, wires or clutter to trip on",
+      "Ask someone to help with lifting or reaching; be careful moving and lifting",
+      "Carry a mobile phone at all times",
+      "Regular eye tests and hearing checks (ear problems affect balance)",
+      "Ask the doctor or pharmacist whether her medicines affect balance: pregabalin, sertraline and duloxetine all list dizziness or drowsiness",
+      "Strength and balance activity on at least 2 days a week (ask her physiotherapist what's safe)"
+    ],
+    help: "NHS: go to hospital / call an ambulance for <b>severe pain after a fall or injury</b>, or if she falls and may have hurt her <b>head, back, neck or hip</b>, or <b>cannot get up</b>. See a doctor urgently if pain after a fall isn't getting better, and see a doctor if back pain doesn't improve after a few weeks or her back is becoming curved.",
+    action: "Talk to her doctor <b>soon</b> about arranging the drip, rather than waiting for the December review. Ask about the dose (the sheet says 4 mg; 5 mg is usual for osteoporosis), a kidney blood test first, and a dental check first (MedlinePlus advises one before starting).",
+    sources: [["NHS: osteoporosis", "https://www.nhs.uk/conditions/osteoporosis/"], ["NHS: preventing falls", "https://www.nhs.uk/conditions/falls/prevention/"], ["MedlinePlus: zoledronic acid", "https://medlineplus.gov/druginfo/meds/a605023.html"]],
+    docs: ["cmc-dexa", "cmc-discharge"]
+  },
 
   // ---------------------------------------------------------------------------
   // TIMELINE
@@ -101,7 +127,7 @@ window.HEALTH = {
       summary: "Seen in the emergency room (the ER note says symptoms 'for last 3 hrs'). She was fully alert (GCS 15/15) with BP 130/70. The CT brain showed small old and recent 'lacunar' strokes deep in both sides of the brain. The on-call neuromedicine doctor advised admission, but no bed was available, so the ER paper says she was referred to another hospital. (Her tests were still done at BSH that night and the next day.)",
       details: [
         "Diagnosis written: CVD (cerebrovascular disease, i.e. stroke).",
-        "The ER doctor wrote 'left-sided weakness'. CMC later found no weakness, only right-sided numbness (see Questions).",
+        "The ER doctor wrote 'left-sided weakness'. CMC later found no weakness, only right-sided numbness (see 'For the doctor').",
         "Blood sugar on arrival 9.3 mmol/L.",
         "The CT report says 'Brain stem and cerebellum unremarkable'."
       ],
@@ -114,9 +140,9 @@ window.HEALTH = {
       phase: "dhaka",
       place: "BSH Dhaka — tests referred by Prof. Dr. Narayan Chandra Kundu",
       title: "MRI + MRA brain, heart echo, ECG, blood tests, abdominal ultrasound",
-      summary: "Tests listing Prof. Narayan Chandra Kundu as the referring doctor (his specialty isn't printed on the reports). MRI: an old tiny stroke in the left lentiform nucleus, small-vessel white-matter changes, mild age-related brain shrinkage, and an 'empty sella'. The written MRI report says 'The posterior fossa, brain stem and CP angles are normal'. MRA: a possible tiny 2.2 mm aneurysm at the anterior communicating artery. Cholesterol was high (LDL 162). Echo: heart pumping well, with stiffening (diastolic dysfunction). Ultrasound: fatty, enlarged liver and a left kidney sitting low in the pelvis.",
+      summary: "Most of these reports list Prof. Narayan Chandra Kundu as the referring doctor (his specialty isn't printed; the ECG names no doctor). MRI (detailed brain scan): one old, tiny 'silent' stroke deep in the left side of the brain (left lentiform nucleus); wear-and-tear changes in the brain's small blood vessels; mild age-related shrinkage; and an 'empty sella' (usually harmless). The written MRI report says the brainstem looked normal. MRA (scan of the brain's arteries): a possible tiny 2.2 mm bulge (aneurysm) on an artery at the front of the brain. Blood test: 'bad' cholesterol high (LDL 162). Heart echo: pumping well, but the heart muscle a little stiff (diastolic dysfunction). Belly ultrasound: enlarged, fatty liver, and the left kidney sitting low in the pelvis.",
       details: [
-        "MRI recommended a cerebral DSA (catheter angiogram) 'if clinically indicated' to check the aneurysm. CMC later did a CT angiogram instead, which did not show an aneurysm.",
+        "MRI recommended a cerebral DSA (catheter angiogram) 'if clinically indicated' to check the aneurysm. CMC's discharge summary says a CT cerebral angiogram (after a neurosurgery consult) did not show an aneurysm.",
         "Mild anaemia (Hb 11.1) and high ESR (48).",
         "HbA1c 5.3% (normal, no diabetes)."
       ],
@@ -151,9 +177,9 @@ window.HEALTH = {
       phase: "vellore",
       place: "CMC Vellore — Neurology ward D402",
       title: "Admitted to Neurology",
-      summary: "Admitted for 'further evaluation, disease reassessment and management'. Examination: mild left ptosis, full muscle strength everywhere, 10–20% reduced touch/pain feeling in the right arm and leg. CMC diagnosed a left lateral medullary infarct (TOAST: small vessel disease).",
+      summary: "Admitted for 'further evaluation, disease reassessment, and management'. On examination: a mild droop of the left eyelid (ptosis), full muscle strength in every limb, and 10–20% less feeling for touch and pain in the right arm and leg. CMC's diagnosis: a small stroke on the left side of the medulla, the lowest part of the brainstem (left lateral medullary infarct), caused by a blocked tiny artery (TOAST: small vessel disease).",
       details: [
-        "Blood tests: Hepatitis C virus PCR NEGATIVE (no active infection). HIV and Hepatitis B negative. Vitamin D low (27). B12 and folate normal.",
+        "Blood tests: Hepatitis C virus PCR NEGATIVE (no active infection). HIV and Hepatitis B negative. Vitamin D slightly below the lab's range (27; lab wants >30). B12 and folate normal.",
         "Inflammation markers: ESR 47 (no range printed), CRP 6.41 (just above CMC's printed <6); rheumatoid factor negative. The discharge summary itself describes the inflammatory markers as normal."
       ],
       docs: ["cmc-discharge"]
@@ -165,7 +191,7 @@ window.HEALTH = {
       phase: "vellore",
       place: "CMC Vellore",
       title: "Bone density, carotid Doppler, heart echo, abdominal ultrasound",
-      summary: "DEXA: OSTEOPOROSIS in the spine (T-score −3.4, high fracture risk) and osteopenia at the hip and forearm. Neck arteries (carotid Doppler): completely normal, no plaque. Echo: normal pumping (EF 60.5%), trace/mild valve leaks and grade I stiffness, no clot seen. Ultrasound: liver enlarged with mildly coarse texture ('early features of chronic liver disease'); left kidney malrotated and low in the pelvis, 7.2 cm (the report says both 'normal in size' and 'appears shrunken').",
+      summary: "Bone scan (DEXA): OSTEOPOROSIS (thin, fragile bones) in the lower spine, T-score −3.4, with the report printing 'Fracture Risk: High'; thinning (osteopenia) at the hip and forearm. Neck arteries (carotid Doppler): no fatty build-up, 'Normal study'. Heart echo: pumping normally (EF 60.5%), small valve leaks, mild stiffness (grade I), no clot seen. Belly ultrasound: liver enlarged with a slightly grainy look, which the radiologist called 'early features of chronic liver disease'; the left kidney sits low in the pelvis and is turned (malrotated), 7.2 cm (the report says both 'normal in size' and 'appears shrunken').",
       details: [],
       docs: ["cmc-dexa", "cmc-carotid", "cmc-echo", "cmc-usg"]
     },
@@ -211,8 +237,8 @@ window.HEALTH = {
       sortDate: "2026-06-10",
       phase: "home",
       place: "Hometown",
-      title: "Zoledronic acid drip (status unknown)",
-      summary: "CMC advised giving the bone-strengthening drip at their hometown 'as per protocol', with pre-medicines (Avil, hydrocortisone, paracetamol), 4 mg in 100 ml saline over 1 hour. The usual osteoporosis dose of zoledronic acid is 5 mg once a year, so confirm the dose and repeat interval with the doctor (see 'For the doctor'). CMC wrote that mild fever and body aches may last 2–3 days. Not yet recorded here whether, or when, it was given.",
+      title: "Zoledronic acid drip: NOT given yet (as of 15 Nov 2026)",
+      summary: "CMC advised giving the bone-strengthening drip at their hometown 'as per protocol', with pre-medicines (Avil, hydrocortisone, paracetamol), 4 mg in 100 ml saline over 1 hour. The usual osteoporosis dose of zoledronic acid is 5 mg once a year, so confirm the dose and repeat interval with the doctor (see 'For the doctor'). CMC wrote that mild fever and body aches may last 2–3 days. As of 15 Nov 2026 the family says it has NOT been given yet. Until it is, her spine fracture risk stays high (see the warning on the Overview page).",
       details: [],
       docs: ["cmc-discharge"]
     },
@@ -262,7 +288,7 @@ window.HEALTH = {
         "CT: 'Brain stem and cerebellum unremarkable'",
         "Neuromedicine advised admission; no bed available, so referred to another hospital"
       ],
-      plain: "This is the emergency room paper from the first day. The CT scan (a quick X-ray-based brain scan) showed a few <b>small 'lacunar' strokes</b> deep in both halves of the brain, some old, some possibly recent. 'Capsuloganglionic' just names that deep area. It also showed <b>age-related shrinkage</b> and <b>white-matter changes</b>, signs that the brain's tiny blood vessels have been under strain for years (usually from blood pressure; general knowledge). The CT report calls the brainstem unremarkable; in general, CT is not good at seeing small brainstem strokes. An MRI was done next. The 'PNS: DNS to right, HIT (left)' line is about the nose (bent nasal septum, swollen turbinate). It is not important here.",
+      plain: "This is the emergency room paper from the first day. The CT scan (a quick X-ray-based brain scan) showed a few <b>small 'lacunar' strokes</b> deep in both halves of the brain, some old, some possibly recent. 'Capsuloganglionic' just names that deep area. It also showed <b>age-related shrinkage</b> and <b>white-matter changes</b>, signs that the brain's tiny blood vessels have been under strain for years (usually from blood pressure; general knowledge). The CT report calls the brainstem unremarkable; in general, CT is not good at seeing small brainstem strokes. An MRI was done next. The line 'PNS: DNS to right. HIT (left)' is about her <b>nose</b>, not her brain. In plain words: the wall between her two nostrils is bent towards the right (DNS = deviated nasal septum), and one of the small ridges inside the left side of her nose is swollen (HIT most likely = hypertrophied inferior turbinate; the MRI the next day says 'Left inferior turbinate is hypertrophied'). Both are common, and neither has anything to do with the stroke.",
       terms: ["lacunar", "capsuloganglionic", "hypodense", "atrophy", "white-matter", "gcs"]
     },
     {
@@ -285,7 +311,7 @@ window.HEALTH = {
         "Mild chronic sinusitis; enlarged left inferior turbinate",
         "Recommendation: cerebral DSA if clinically indicated"
       ],
-      plain: "MRI is the detailed brain scan. Item by item:<br><br>• <b>Old lacunar infarct, left lentiform nucleus</b>: an old, tiny 'silent' stroke deep in the brain. The 'DWI' sequence shows new strokes brightly; this one was not bright, so it is old.<br>• <b>White-matter microvascular change</b>: wear on the small blood vessels (in general, common with age and long-term high BP).<br>• <b>Mild atrophy</b>: mild age-related shrinkage.<br>• <b>Empty sella</b>: the pocket that holds the pituitary gland looks filled with fluid, and the gland looks flattened. In general usually a harmless incidental finding; ask whether any hormone tests are needed (a normal thyroid TSH alone doesn't check the pituitary fully).<br>• <b>Possible tiny aneurysm (2.2 mm)</b>: a small bulge on an artery at the front of the brain. <b>CMC re-checked this with a CT angiogram and it did not show an aneurysm.</b><br>• <b>Hypoplastic left PCA</b>: one artery is naturally a bit thinner. Normal variation, which people are born with.<br>• <b>Sinusitis / turbinate</b>: nose and sinus findings, not related to the stroke.<br><br><b>Important:</b> this written report says <b>'The posterior fossa, brain stem and CP angles are normal'</b> and found no new (restricted-diffusion) stroke. But CMC's discharge summary says this MRI 'demonstrated a left medullary infarct'. The two documents disagree. CMC may have reviewed the images themselves (in general, small medulla strokes can be missed), but that is not written anywhere. This is the most important question for the review. See 'For the doctor'.",
+      plain: "MRI is the detailed brain scan. Item by item:<br><br>• <b>Old lacunar infarct, left lentiform nucleus</b>: an old, tiny 'silent' stroke deep in the brain. The 'DWI' sequence shows new strokes brightly; this one was not bright, so it is old.<br>• <b>White-matter microvascular change</b>: wear on the small blood vessels (in general, common with age and long-term high BP).<br>• <b>Mild atrophy</b>: mild age-related shrinkage.<br>• <b>Empty sella</b>: the pocket that holds the pituitary gland looks filled with fluid, and the gland looks flattened. In general usually a harmless incidental finding; ask whether any hormone tests are needed (a normal thyroid TSH alone doesn't check the pituitary fully).<br>• <b>Possible tiny aneurysm (2.2 mm)</b>: a small bulge on an artery at the front of the brain. <b>CMC's discharge summary says a CT cerebral angiogram did not show an aneurysm.</b><br>• <b>Hypoplastic left PCA</b>: one artery is naturally a bit thinner. Normal variation, which people are born with.<br>• <b>Sinusitis / turbinate</b>: nose and sinus findings, not related to the stroke.<br><br><b>Important:</b> this written report says <b>'The posterior fossa, brain stem and CP angles are normal'</b> and found no new (restricted-diffusion) stroke. But CMC's discharge summary says this MRI 'demonstrated a left medullary infarct'. The two documents disagree. CMC may have reviewed the images themselves (in general, small medulla strokes can be missed), but that is not written anywhere. This is the most important question for the review. See 'For the doctor'.",
       terms: ["lacunar", "lentiform", "flair", "dwi", "white-matter", "atrophy", "empty-sella", "aneurysm", "acoma", "pca", "dsa", "mra"]
     },
     {
@@ -322,7 +348,7 @@ window.HEALTH = {
         "LV diastolic dysfunction grade II",
         "Mild pulmonary hypertension (PASP 36 mmHg)"
       ],
-      plain: "An echo is an ultrasound of the heart. The heart <b>pumps well</b> (EF 62%; normal is about 55–70%). The wall is <b>slightly thick</b>, which is typical after years of high blood pressure. <b>Diastolic dysfunction</b> means the heart muscle is a bit stiff and relaxes slowly between beats. This report called it grade II. <b>Mild pulmonary hypertension</b> means slightly raised pressure in the lung arteries. <b>CMC's echo about 2 months later was milder</b>: grade I stiffness and no pulmonary hypertension mentioned; CMC's discharge summary calls the 2D echo normal. Readings vary between machines and operators. (This Dhaka report does not comment on clots; CMC's echo saw no clot.)",
+      plain: "An echo is an ultrasound of the heart. The heart <b>pumps well</b> (EF 62%; normal is about 50–70%). The wall is <b>slightly thick</b>, which is typical after years of high blood pressure. <b>Diastolic dysfunction</b> means the heart muscle is a bit stiff and relaxes slowly between beats. This report called it grade II. <b>Mild pulmonary hypertension</b> means slightly raised pressure in the lung arteries. <b>CMC's echo about 2 months later was milder</b>: grade I stiffness and no pulmonary hypertension mentioned; CMC's discharge summary calls the 2D echo normal. Readings vary between machines and operators. (This Dhaka report does not comment on clots; CMC's echo saw no clot.)",
       terms: ["echo", "ef", "diastolic", "lvh", "mr", "pah"]
     },
     {
@@ -386,7 +412,7 @@ window.HEALTH = {
         "Condition at discharge: STABLE",
         "Review in Neurology OPD with Dr. Aditya Nair after 6 months"
       ],
-      plain: "This is the <b>most important document</b>. It brings everything together.<br><br><b>The stroke:</b> CMC concluded it was a <b>left lateral medullary infarct</b>, a small stroke in the left side of the lowest part of the brainstem. The summary says the outside MRI 'demonstrated a left medullary infarct' (although the written Dhaka MRI report calls the brainstem normal; see 'For the doctor'). The symptom pattern (left eyelid droop plus right-body numbness) fits that location. Under 'TOAST' (a system for classifying stroke cause) it is <b>small vessel disease</b>: blockage of a tiny artery, typically from long-term high BP and ageing. Heart and neck-artery tests were normal, so a clot from the heart or a narrowed neck artery is unlikely.<br><br><b>Treatment:</b> antiplatelet (aspirin), a statin (atorvastatin), risk-factor control, physiotherapy and occupational therapy.<br><br><b>The aneurysm worry is reassuring:</b> the CT angiogram did not show one.<br><br><b>Other issues</b> were each reviewed by the relevant specialist: bones (endocrinology), liver/Hep C (hepatology), bowels (gastroenterology), joint pains (rheumatology), anxiety and sleep (psychiatry).<br><br><b>Emergency signs listed by CMC:</b> any NEW weakness, sudden severe headache, blackouts or seizures, bleeding from the gums or blood in stool. Go to the nearest hospital, or call CMC on 92800 43437 (24×7).",
+      plain: "This is the <b>most important document</b>. It brings everything together.<br><br><b>The stroke:</b> CMC concluded it was a <b>left lateral medullary infarct</b>, a small stroke in the left side of the lowest part of the brainstem. The summary says the outside MRI 'demonstrated a left medullary infarct' (although the written Dhaka MRI report calls the brainstem normal; see 'For the doctor'). The symptom pattern (left eyelid droop plus right-body numbness) fits that location. Under 'TOAST' (a system for classifying stroke cause) it is <b>small vessel disease</b>: blockage of a tiny artery, typically from long-term high BP and ageing. Heart and neck-artery tests were normal, which (our reading) makes a clot from the heart or a narrowed neck artery less likely.<br><br><b>Treatment:</b> antiplatelet (aspirin), a statin (atorvastatin), risk-factor control, physiotherapy and occupational therapy.<br><br><b>The aneurysm worry is reassuring:</b> the CT angiogram did not show one.<br><br><b>Other issues</b> were each reviewed by the relevant specialist: bones (endocrinology), liver/Hep C (hepatology), bowels (gastroenterology), joint pains (rheumatology), anxiety and sleep (psychiatry).<br><br><b>Emergency signs listed by CMC:</b> any NEW weakness, sudden severe headache, blackouts or seizures, bleeding from the gums or blood in stool. Go to the nearest hospital, or call CMC on 92800 43437 (24×7).",
       terms: ["lateral-medullary", "horner", "toast", "small-vessel", "ptosis", "antiplatelet", "statin", "dexa", "hcv"]
     },
     {
@@ -400,7 +426,7 @@ window.HEALTH = {
       keyFindings: [
         "Lumbar spine L1–L4: T-score −3.4 → OSTEOPOROSIS, fracture risk HIGH",
         "Left hip femoral neck: T-score −2.3 → osteopenia (total hip −1.2)",
-        "Left forearm: 1/3 radius T-score −2.2 (total −2.3) → osteopenia, fracture risk increased",
+        "Left forearm: '1/3' site of radius + ulna T-score −2.2 (total −2.3) → osteopenia, fracture risk increased",
         "Height 146 cm, weight 62 kg"
       ],
       plain: "DEXA measures bone mineral density. The <b>T-score</b> compares her bones with a healthy young adult. Above −1 is normal, −1 to −2.5 is <b>osteopenia</b> (thinning), and −2.5 or lower is <b>osteoporosis</b>. Her <b>spine is −3.4</b>: clearly osteoporosis, and the report prints 'Fracture Risk: High'. This is why CMC recommended the <b>zoledronic acid</b> drip plus calcium and vitamin D. In general, <b>preventing falls</b> at home (night light, no loose rugs, grab bars) matters a lot. Note: the machine compared her with a 'White Female' reference group. Several pages are colour and black-and-white copies of the same results.",
@@ -517,10 +543,10 @@ window.HEALTH = {
     {
       name: "Possible brain aneurysm (2.2 mm)",
       status: "resolved",
-      statusLabel: "Not seen on CMC's CT angiogram",
+      statusLabel: "Not seen on CT angiogram (per CMC)",
       since: "MRA Apr 2026",
       what: "The Dhaka MRA suggested a tiny bulge on the anterior communicating artery.",
-      now: "CMC's CT cerebral angiogram did not demonstrate an aneurysm (reassuring; very small aneurysms can be hard to see on CT angiography).",
+      now: "CMC's summary says a CT cerebral angiogram 'did not demonstrate any aneurysmal dilatation' (reassuring; very small aneurysms can be hard to see on CT angiography).",
       plan: "Ask at review whether any repeat imaging is ever needed (and get a copy of the CT angiogram report).",
       docs: ["bsh-mri", "cmc-discharge"]
     },
@@ -540,18 +566,18 @@ window.HEALTH = {
       statusLabel: "Treated",
       since: "known",
       what: "LDL 162, triglycerides 235 in April.",
-      now: "On atorvastatin 10 mg since CMC.",
+      now: "On atorvastatin 10 mg (on the CMC discharge list; the summary says she was 'managed with antiplatelet therapy, statins').",
       plan: "Repeat the lipid profile and ask what LDL target the doctors want.",
       docs: ["bsh-labs"]
     },
     {
       name: "Osteoporosis (spine) / osteopenia (hip, forearm)",
       status: "active",
-      statusLabel: "Treated · high fracture risk",
-      since: "2019",
-      what: "Thin bones. Spine T-score −3.4.",
-      now: "Vitamin D was low (27 ng/ml).",
-      plan: "Zoledronic acid drip, calcium (Shelcal), vitamin D (Calcirol), fall prevention.",
+      statusLabel: "HIGH spine fracture risk · drip not given yet",
+      since: "on treatment since 2019",
+      what: "Thin, fragile bones that break more easily. A T-score of −2.5 or lower counts as osteoporosis; her spine is −3.4, and the report says fracture risk is HIGH.",
+      now: "Vitamin D slightly below the lab's range (27 ng/ml; lab wants >30).",
+      plan: "Zoledronic acid drip (advised by CMC, NOT given yet as of 15 Nov 2026), calcium (Shelcal), vitamin D (Calcirol), fall prevention.",
       docs: ["cmc-dexa", "cmc-discharge"]
     },
     {
@@ -560,8 +586,8 @@ window.HEALTH = {
       statusLabel: "No treatment needed",
       since: "2019",
       what: "A positive antibody means past exposure (or, when weakly positive, sometimes a false positive). The virus test (PCR) is negative, so there is no active infection.",
-      now: "Liver blood tests normal; FibroScan normal; AFP normal.",
-      plan: "Hepatology OPD follow-up; periodic FibroScan/ultrasound.",
+      now: "Liver blood tests normal; FibroScan says significant liver scarring is unlikely; AFP (liver cancer screening marker) normal.",
+      plan: "OPD follow-up advised; the FibroScan report recommends 'Serial Monitoring'.",
       docs: ["cmc-fibroscan", "cmc-usg", "cmc-discharge"]
     },
     {
@@ -570,7 +596,7 @@ window.HEALTH = {
       statusLabel: "Monitor",
       since: "Apr 2026",
       what: "Ultrasounds showed an enlarged liver (fatty in Dhaka, coarse at CMC).",
-      now: "CMC ultrasound impression: 'early features of chronic liver disease'. FibroScan: significant fibrosis unlikely, no steatosis.",
+      now: "CMC ultrasound conclusion: 'early features of chronic liver disease'. But the FibroScan two days later said significant scarring is unlikely and found no fatty liver.",
       plan: "Serial monitoring (as advised); hepatology OPD follow-up.",
       docs: ["bsh-usg", "cmc-usg", "cmc-fibroscan"]
     },
@@ -581,7 +607,7 @@ window.HEALTH = {
       since: "~10 years",
       what: "Alternating constipation and diarrhoea.",
       now: "Stool calprotectin negative (no gut inflammation). Repeat colonoscopy not advised.",
-      plan: "Isabgol (Naturolax) twice daily.",
+      plan: "Repeat colonoscopy not advised. Naturolax (isabgol) is on her discharge list; the summary doesn't state its reason.",
       docs: ["cmc-discharge"]
     },
     {
@@ -619,7 +645,7 @@ window.HEALTH = {
       status: "monitoring",
       statusLabel: "Watch",
       since: "May 2026",
-      what: "HbA1c 5.3% in April, 5.7% in May (5.7 is the very start of the 'prediabetes' range).",
+      what: "HbA1c 5.3% in April, 5.7% in May (5.7 is the very start of the 'prediabetes' range on US cut-offs; UK guidance starts at 6.0%).",
       now: "No diabetes.",
       plan: "Diet and weight loss; recheck HbA1c periodically.",
       docs: ["bsh-labs", "cmc-discharge"]
@@ -641,16 +667,16 @@ window.HEALTH = {
   // ---------------------------------------------------------------------------
   medicines: [
     { name: "Aspirin", dose: "75 mg", when: "Once daily, afternoon", purpose: "Blood thinner (antiplatelet). Stops platelets clumping, which lowers the risk of another stroke.", note: "Stroke-prevention medicine prescribed by CMC. Don't stop without a doctor's advice. CMC lists bleeding gums or blood in stools as warning signs." , group: "Stroke prevention"},
-    { name: "Atorvastatin", dose: "10 mg", when: "Once daily, night", purpose: "Lowers cholesterol (LDL) and protects artery walls.", note: "Report unexplained muscle pain.", group: "Stroke prevention" },
+    { name: "Atorvastatin", dose: "10 mg", when: "Once daily, night", purpose: "Lowers cholesterol (LDL); can help prevent heart attack and stroke in people with blood-vessel disease (NHS).", note: "Report unexplained muscle pain.", group: "Stroke prevention" },
     { name: "Sertraline", dose: "25 mg", when: "Once daily, morning", purpose: "For anxiety and mood (an SSRI). Started at CMC by Psychiatry.", note: "In general takes a few weeks to work fully.", group: "Mind & pain" },
     { name: "Duloxetine", dose: "20 mg", when: "Once daily", purpose: "An SNRI; in general used for chronic pain and tingling, and for mood. The discharge summary doesn't state the reason.", note: "", group: "Mind & pain" },
     { name: "Pregabalin", dose: "75 mg", when: "Twice daily", purpose: "Nerve-type pain and tingling. Rheumatology wrote 'continuation of pregabalin 75 mg twice daily', so she may have been taking it before CMC.", note: "In general can cause drowsiness or dizziness; take care to prevent falls (she has osteoporosis).", group: "Mind & pain" },
     { name: "Mego-XL", dose: "1", when: "Once daily", purpose: "Nerve vitamins. Pharmacy listings show methylcobalamin (B12) + alpha-lipoic acid + vitamin B6 + folic acid.", note: "Composition from pharmacy listings; check the pack.", group: "Supplements" },
     { name: "Shelcal", dose: "500 mg", when: "Once daily", purpose: "Calcium + vitamin D3 for bones (pharmacy listings: 500 mg elemental calcium + vitamin D3 250 IU).", note: "", group: "Bones" },
-    { name: "Calcirol", dose: "60,000 IU", when: "Weekly × 6 weeks, then monthly × 6 months", purpose: "High-dose vitamin D3. Her level was low (27).", note: "Weekly part ≈ until mid-July 2026; monthly ≈ until Jan 2027.", group: "Bones" },
+    { name: "Calcirol", dose: "60,000 IU", when: "Weekly × 6 weeks, then monthly × 6 months", purpose: "High-dose vitamin D3. Her level was slightly below the lab's range (27; lab wants >30).", note: "Weekly part ≈ until mid-July 2026; monthly ≈ until Jan 2027.", group: "Bones" },
     { name: "Zoledronic acid (IV drip)", dose: "4 mg in 100 ml NS over 1 hr", when: "To be given at their hometown 'as per protocol' (frequency not stated; status unknown)", purpose: "Strengthens bones and cuts fracture risk. The usual osteoporosis dose is 5 mg once a year, so confirm the 4 mg dose with the doctor. Pre-medicines: Inj. Avil, Inj. Hydrocortisone 100 mg, Tab. Paracetamol 1 g.", note: "CMC: mild fever with muscle aches may persist 2–3 days; paracetamol 1 g as needed (max 3 g/day, 6 h apart). Record the date given.", group: "Bones" },
     { name: "Pantoprazole", dose: "40 mg", when: "Once daily", purpose: "Reduces stomach acid (in general often given to protect the stomach alongside aspirin; reason not stated).", note: "In general taken before breakfast; confirm with the pharmacist.", group: "Stomach & bowel" },
-    { name: "Naturolax powder", dose: "1 tablespoon in a glass of water", when: "Twice daily", purpose: "Isabgol (psyllium husk) fibre, which regulates the bowels (IBS).", note: "Drink plenty of water with it.", group: "Stomach & bowel" }
+    { name: "Naturolax powder", dose: "1 tablespoon in a glass of water", when: "Twice daily", purpose: "Isabgol (psyllium husk) fibre, which softens and bulks up stools. The discharge summary doesn't say why it was prescribed (her bowel problems were labelled probable IBS).", note: "Drink plenty of water with it.", group: "Stomach & bowel" }
   ],
   previousMedicines: [
     { name: "Fluoxetine 20 mg", note: "Before CMC. Not on the discharge list; sertraline appears to replace it. Confirm it was stopped." },
@@ -674,7 +700,7 @@ window.HEALTH = {
     { group: "Blood count", name: "Haematocrit (PCV)", unit: "%", ref: "BSH 37–47 · CMC 35–46 (F)", apr: 34.4, jun: 32.9, flag: "low", explain: "" },
     { group: "Blood count", name: "White blood cells", unit: "×10⁹/L", ref: "CMC 4–12", apr: 10.0, jun: 10.2, flag: "", explain: "Infection-fighting cells. Within range." },
     { group: "Blood count", name: "Platelets", unit: "×10⁹/L", ref: "150–450", apr: 250, jun: 219, flag: "", explain: "" },
-    { group: "Sugar", name: "HbA1c", unit: "%", ref: "< 5.7 normal", apr: 5.3, jun: 5.7, flag: "borderline", explain: "3-month average sugar. 5.7 = start of the prediabetes range." },
+    { group: "Sugar", name: "HbA1c", unit: "%", ref: "< 5.7 normal", apr: 5.3, jun: 5.7, flag: "borderline", explain: "3-month average sugar. 5.7 = start of the prediabetes range on US cut-offs (UK starts at 6.0)." },
     { group: "Sugar", name: "Random blood sugar", unit: "mmol/L", ref: "< 7.8", apr: 5.0, jun: null, flag: "", explain: "" },
     { group: "Cholesterol", name: "Total cholesterol", unit: "mg/dL", ref: "BSH: High > 239", apr: 251, jun: null, flag: "high", explain: "" },
     { group: "Cholesterol", name: "LDL ('bad')", unit: "mg/dL", ref: "< 100 optimal", apr: 162, jun: null, flag: "high", explain: "The main target of the statin. Needs a recheck on treatment." },
@@ -726,12 +752,13 @@ window.HEALTH = {
   questions: [
     { topic: "Stroke location (most important)", text: "The written Dhaka MRI report says 'The posterior fossa, brain stem and CP angles are normal' (and the CT says 'Brain stem and cerebellum unremarkable'), but CMC's summary says the MRI demonstrated a left medullary infarct. Did CMC review the MRI images themselves, or base the diagnosis on her symptoms? Should we keep the MRI CD safe for future comparison?", docs: ["bsh-mri", "cmc-discharge"] },
     { topic: "Weakness", text: "The Dhaka ER note says 'left-sided weakness', but CMC found full strength and only right-sided numbness. Was there ever real weakness, or was the ER note inaccurate?", docs: ["bsh-er", "cmc-discharge"] },
-    { topic: "Aneurysm", text: "The CT angiogram at CMC did not show the 2.2 mm aneurysm seen on the Dhaka MRA. Can we get a copy of that report? Since very small aneurysms can be hard to see on CT angiography, is any repeat scan ever needed?", docs: ["bsh-mri", "cmc-discharge"] },
+    { topic: "Aneurysm", text: "The CT angiogram mentioned in CMC's summary did not show the 2.2 mm aneurysm seen on the Dhaka MRA. Can we get a copy of that report? Since very small aneurysms can be hard to see on CT angiography, is any repeat scan ever needed?", docs: ["bsh-mri", "cmc-discharge"] },
     { topic: "Blood pressure tablets", text: "Her BP medicine isn't on the CMC discharge list. Which BP tablet and dose should she be on, and what BP target should we aim for at home?", docs: ["cmc-discharge"] },
     { topic: "Cholesterol target", text: "LDL was 162 before treatment. When should we recheck the lipid profile, and what LDL target do you want? Is atorvastatin 10 mg enough?", docs: ["bsh-labs"] },
     { topic: "Old medicines", text: "Should fluoxetine and quetiapine be fully stopped now that she takes sertraline + duloxetine? (She was on them before CMC.) Was she already on pregabalin, and which osteoporosis medicine had she taken since 2019?", docs: ["cmc-discharge"] },
     { topic: "Medicine combination", text: "She takes aspirin together with sertraline and duloxetine (and pregabalin). Is there anything to watch for, e.g. bleeding, low sodium, serotonin-related side effects, or drowsiness and falls? Is pantoprazole meant to be long-term?", docs: ["cmc-discharge"] },
-    { topic: "Zoledronic acid", text: "The discharge sheet says 4 mg; the usual osteoporosis dose is 5 mg once a year. Please confirm the intended dose and how often to repeat it. Her creatinine rose from 0.7 to 1.0 and the left kidney 'appears shrunken': is a kidney function (eGFR) check needed first? Does she need a dental check or vitamin D top-up beforehand?", docs: ["cmc-discharge", "cmc-dexa"] },
+    { topic: "Pregabalin at her age", text: "The NHS leaflet says pregabalin 'might not be suitable for people older than 65'. She is 70 and also takes sertraline and duloxetine, which can cause dizziness. Is 75 mg twice daily still right for her, given her fall and fracture risk? (Don't stop it suddenly.)", docs: ["cmc-discharge"] },
+    { topic: "Zoledronic acid (urgent: not given yet)", text: "The drip has NOT been given yet, and her spine fracture risk is high. Can it be arranged soon? The discharge sheet says 4 mg; the usual osteoporosis dose is 5 mg once a year. Please confirm the intended dose and how often to repeat it. Her creatinine rose from 0.7 to 1.0 and the left kidney 'appears shrunken': is a kidney function (eGFR) check needed first? Does she need a dental check or vitamin D top-up beforehand?", docs: ["cmc-discharge", "cmc-dexa"] },
     { topic: "Heart echo", text: "Dhaka's echo said grade II diastolic dysfunction + mild pulmonary hypertension; CMC's echo said grade I with mild valve leaks and no pulmonary hypertension mentioned, and the discharge summary calls it normal. Is any heart follow-up needed?", docs: ["bsh-echo", "cmc-echo"] },
     { topic: "Anaemia", text: "Haemoglobin is ~11 (mildly low). Should iron levels be checked, especially while she is on aspirin?", docs: ["bsh-labs"] },
     { topic: "Liver", text: "How often should the FibroScan/ultrasound be repeated, and with which doctor (hepatology OPD)?", docs: ["cmc-fibroscan", "cmc-usg"] },
@@ -745,7 +772,7 @@ window.HEALTH = {
     "CMC CT cerebral angiography report (mentioned in the discharge summary, not in the scans)",
     "Prof. Narayan Chandra Kundu's prescription/notes from Dhaka (April)",
     "Anything from 6 Apr – 28 May (any other hospital she went to? medicines?)",
-    "Date the zoledronic acid drip was given",
+    "Zoledronic acid drip: not given yet (15 Nov 2026). Record the date when it is given",
     "Any reports or check-ups after 5 Jun 2026",
     "Physiotherapy home-programme pamphlet",
     "Current BP medicine name and dose"
@@ -777,8 +804,8 @@ window.HEALTH = {
   // GLOSSARY
   // ---------------------------------------------------------------------------
   glossary: {
-    "lateral-medullary": ["Lateral medullary infarct (Wallenberg syndrome)", "A stroke in the outer side of the medulla, the lowest part of the brainstem. Typical signs: drooping eyelid on the same side, loss of pain/temperature feeling on the opposite side of the body, slurred speech, and sometimes dizziness or swallowing trouble."],
-    "horner": ["Horner syndrome", "Drooping upper eyelid (and a smaller pupil) caused by interruption of a nerve pathway that runs through the brainstem. Explains her left eyelid droop."],
+    "lateral-medullary": ["Lateral medullary infarct (Wallenberg syndrome)", "A stroke in the outer side of the medulla, the lowest part of the brainstem. Typical signs: drooping eyelid on the same side, loss of pain/temperature feeling on the opposite side of the body, slurred speech, and often dizziness, unsteadiness or swallowing trouble."],
+    "horner": ["Horner syndrome", "Drooping upper eyelid (and a smaller pupil) caused by damage to a nerve pathway that passes through the brainstem. CMC wrote her eyelid droop is 'suggestive of probable Horner syndrome'."],
     "ptosis": ["Ptosis", "Drooping of the upper eyelid."],
     "toast": ["TOAST classification", "A standard way doctors classify the cause of a stroke: large artery, heart clot, small vessel, other, or unknown. Hers is 'small vessel disease'."],
     "small-vessel": ["Small vessel disease", "Damage to the tiny arteries deep in the brain, mainly from long-term high blood pressure and age; diabetes, smoking and cholesterol add to it. Causes small 'lacunar' strokes."],
@@ -789,30 +816,30 @@ window.HEALTH = {
     "atrophy": ["Atrophy", "Shrinkage. Mild brain atrophy is common with age."],
     "white-matter": ["White-matter ischaemic change", "Patchy damage in the brain's 'wiring' from reduced blood flow in small vessels. Very common with age and high BP."],
     "flair": ["T2 / FLAIR", "MRI picture types that show damaged or watery tissue as bright."],
-    "dwi": ["DWI (diffusion)", "The MRI sequence that lights up NEW strokes (days to ~2 weeks). No 'restricted diffusion' = the lesion is old."],
-    "empty-sella": ["Empty sella", "The bony pocket for the pituitary gland looks filled with fluid and the gland flattened. Usually harmless and found by chance."],
-    "aneurysm": ["Saccular aneurysm", "A small berry-like bulge on an artery wall. Hers was 'suggested' on the MRA but not demonstrated on CMC's CT angiogram."],
+    "dwi": ["DWI (diffusion)", "The MRI picture type that lights up NEW strokes, from minutes after they start until about 2 weeks later. A spot that isn't bright on DWI is usually old. But a normal DWI doesn't completely rule out a new stroke: very small brainstem strokes can be missed, especially in the first day."],
+    "empty-sella": ["Empty sella", "The bony pocket for the pituitary gland looks filled with fluid and the gland flattened. Usually harmless and found by chance; occasionally doctors check hormone levels."],
+    "aneurysm": ["Saccular aneurysm", "A small berry-like bulge on an artery wall. Hers was 'suggested' on the MRA but not demonstrated on the CT angiogram reported by CMC."],
     "acoma": ["AComA", "Anterior communicating artery: a short artery at the front of the brain connecting the left and right sides."],
-    "pca": ["PCA (hypoplastic)", "Posterior cerebral artery. 'Hypoplastic' = naturally narrower. A normal variation."],
+    "pca": ["PCA", "Posterior cerebral artery: the artery supplying the back of the brain. Hers is described as mildly hypoplastic (naturally thinner), a normal variant."],
     "dsa": ["DSA", "Digital subtraction angiography: a catheter X-ray test of brain arteries. Recommended 'if needed'; CMC used a CT angiogram instead."],
-    "mra": ["MRA", "MR angiography: an MRI picture of the blood vessels, without injection."],
+    "mra": ["MRA", "MR angiography: an MRI picture of the blood vessels. It can be done with or without a dye injection; her Dhaka scan says 'Non contrast scan' (no dye)."],
     "gcs": ["GCS 15/15", "Glasgow Coma Scale. 15 is fully alert and normal."],
     "ldl": ["LDL cholesterol", "'Bad' cholesterol that builds up in arteries. After a stroke doctors usually want it much lower."],
-    "hdl": ["HDL cholesterol", "'Good' cholesterol; higher is better."],
-    "hba1c": ["HbA1c", "Average blood sugar over ~3 months. <5.7% normal, 5.7–6.4% prediabetes, ≥6.5% diabetes."],
+    "hdl": ["HDL cholesterol", "'Good' cholesterol; higher is generally better."],
+    "hba1c": ["HbA1c", "Average blood sugar over ~3 months. <5.7% normal, 5.7–6.4% prediabetes, ≥6.5% diabetes (US cut-offs; UK guidance counts prediabetes from 6.0%). Anaemia can affect the result."],
     "esr": ["ESR", "A non-specific blood test for inflammation."],
     "hb": ["Haemoglobin (Hb)", "The oxygen-carrying protein in red blood cells. Low = anaemia."],
-    "echo": ["Echocardiogram", "Ultrasound of the heart showing its pumping, valves and any clots."],
-    "ef": ["Ejection fraction (EF)", "Percentage of blood pumped out per beat. ~55–70% is normal."],
-    "diastolic": ["Diastolic dysfunction", "The heart muscle is stiff and relaxes slowly between beats. Grade I is mild and very common with age and high BP."],
+    "echo": ["Echocardiogram", "Ultrasound of the heart showing its pumping and valves. It can sometimes show clots, but a normal echo can't fully rule them out."],
+    "ef": ["Ejection fraction (EF)", "The percentage of blood in the main pumping chamber pushed out with each beat. About 50–70% is normal (sources vary slightly)."],
+    "diastolic": ["Diastolic dysfunction (grades I, II, III)", "The heart muscle is stiff and relaxes slowly between beats, so the heart fills with blood less easily. Its pumping strength can still be normal. Echo reports grade it with Roman numerals: Grade I (1) = mild, very common with age and high blood pressure; Grade II (2) = moderate, with raised filling pressure inside the heart; Grade III (3) = severe. Her Dhaka echo (Apr) said grade II; CMC's echo 2 months later said grade I. Her pumping was normal on both (EF 62% and 60.5%). Ask her doctor what this means for her; it is on the 'For the doctor' list."],
     "lvh": ["Concentric LV hypertrophy", "Thickening of the main pumping chamber's wall, usually from long-term high BP."],
-    "mr": ["Mitral / aortic / tricuspid regurgitation", "A small backward leak through a heart valve. 'Trace' or 'mild' is common and usually harmless."],
+    "mr": ["Mitral / aortic / tricuspid regurgitation", "A backward leak through a heart valve (MR = mitral, AR = aortic, TR = tricuspid). 'Trace' or 'mild' leaks are common and usually harmless."],
     "mac": ["MAC", "Mitral annular calcification: calcium deposit on the ring of the mitral valve, common with age."],
     "pah": ["Pulmonary hypertension", "Raised pressure in the lung arteries. 'Mild' on the Dhaka echo; not mentioned on the later CMC echo."],
     "ecg": ["ECG", "A recording of the heart's electrical rhythm."],
     "af": ["Atrial fibrillation", "An irregular heart rhythm that can throw clots to the brain. It was not seen on her two ECGs (a short ECG can miss AF that comes and goes)."],
     "carotid": ["Carotid / vertebral arteries", "The main arteries in the neck supplying the brain. CMC's Doppler: no plaques, 'Normal study'."],
-    "imt": ["IMT", "Intima-media thickness: thickness of the artery wall; under ~0.9 mm is normal."],
+    "imt": ["IMT", "Intima-media thickness: thickness of the inner lining of the neck artery wall. It thickens with age; above about 0.9 mm is generally counted as thickened. Hers was 0.6–0.7 mm."],
     "dexa": ["DEXA scan", "Low-dose X-ray that measures bone mineral density."],
     "t-score": ["T-score", "Bone density compared with a young healthy adult. ≥ −1 normal; −1 to −2.5 osteopenia; ≤ −2.5 osteoporosis."],
     "osteoporosis": ["Osteoporosis", "Thin, fragile bones with high fracture risk."],
@@ -824,7 +851,7 @@ window.HEALTH = {
     "chronic-liver": ["Coarse liver echotexture", "An ultrasound appearance that can be an early sign of liver change; checked further with FibroScan (significant scarring unlikely)."],
     "pelvic-kidney": ["Ectopic / pelvic kidney", "A kidney that settled low in the pelvis before birth instead of moving up. Often causes no problems."],
     "antiplatelet": ["Antiplatelet", "A medicine (like aspirin) that makes platelets less sticky to prevent clots."],
-    "statin": ["Statin", "A cholesterol-lowering medicine (atorvastatin) that also stabilises artery walls."],
+    "statin": ["Statin", "A cholesterol-lowering medicine (atorvastatin) that also helps stabilise fatty deposits (plaque) in artery walls."],
     "exchange": ["Food 'exchange'", "A fixed portion with similar calories, so foods can be swapped. E.g. 1 cereal exchange = ½ cup cooked rice = 1 roti."]
   }
 };
