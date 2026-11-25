@@ -249,6 +249,8 @@ details.mg>summary::before{content:"▸";color:var(--ink-3);transition:transform
 details.mg[open]>summary::before{transform:rotate(90deg)}
 .mg-name{font-weight:650;font-size:16px}
 .mg-dose{color:var(--ink-2);font-size:14px}
+.mg-st{margin-left:8px;background:var(--up-soft);color:var(--ink)}
+.mg-upd{background:var(--up-soft);border-radius:8px;padding:8px 12px}
 .mg-body{padding:0 18px 16px;display:grid;grid-template-columns:1fr 1fr;gap:12px 22px}
 @media (max-width:720px){.mg-body{grid-template-columns:1fr}}
 .mg-sec h4{margin:6px 0 4px;font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-3)}
@@ -428,7 +430,7 @@ V.story = () => {
         <dt>First seen</dt><dd>BSH Dhaka Emergency (tests referred by Prof. N. C. Kundu)</dd>
         <dt>Admitted</dt><dd>CMC Vellore, 1–5 Jun 2026</dd>
         <dt>At discharge</dt><dd>'Stable' (on CMC's examination: full strength; mild left eyelid droop; mild right-side numbness)</dd>
-        <dt>Key medicines</dt><dd>Aspirin 75 mg, Atorvastatin 10 mg</dd>
+        <dt>Key medicines</dt><dd>Aspirin 75 mg, Rosuvastatin 10 mg, Bizoran 5/20 (BP) · as of 12 Nov 2026</dd>
         <dt>Next review</dt><dd>CMC Neurology, Dr. Aditya Nair, ~early Dec 2026</dd>
         ${H.patient.ids.map(i=>`<dt>${esc(i.label)}</dt><dd>${esc(i.value)}</dd>`).join("")}
       </dl>
@@ -464,7 +466,7 @@ V.timeline = () => {
 
 let reportFilter = "All";
 V.reports = (focus) => {
-  const hospitals = ["All","Bangladesh Specialized Hospital","CMC Vellore"];
+  const hospitals = ["All","Bangladesh Specialized Hospital","CMC Vellore","Dhaka chamber"];
   const docs = [...H.documents].sort((a,b)=>a.date.localeCompare(b.date))
     .filter(d=>reportFilter==="All"||d.hospital.startsWith(reportFilter));
   return `
@@ -507,7 +509,7 @@ V.medicines = () => {
   const groups = [...new Set(H.medicines.map(m=>m.group))];
   return `
   <h2 class="view-title">Medicines</h2>
-  <p class="lede">As prescribed at CMC discharge on 5 June 2026. “Continue all medicines till review (unless instructed by your local doctor).” If anything changes, update this list. For benefits, side effects and what happens if a medicine is missed or stopped, see the <a href="#medguide">Medicine guide</a>.</p>
+  <p class="lede">Current list: <b>Dr Rajib Das's prescription of ${esc(H.medicinesAsOf)}</b>, which changed several CMC medicines. The family's own list from 16 Nov didn't fully match it, so <b>check the strips</b> to confirm what she actually takes. Times are written as morning+noon+night (e.g. 0+0+1 = night only). For benefits, side effects and what happens if a medicine is missed or stopped, see the <a href="#medguide">Medicine guide</a>.</p>
   <div class="tbl-wrap stack"><table>
     <thead><tr><th>Medicine</th><th>Dose</th><th>When</th><th>What it's for</th></tr></thead>
     <tbody>
@@ -515,7 +517,7 @@ V.medicines = () => {
       <tr><td class="med-name">${esc(m.name)}</td><td class="num">${esc(m.dose)}</td><td>${esc(m.when)}</td>
       <td>${esc(m.purpose)}${m.note?`<div class="med-note">${esc(m.note)}</div>`:""}</td></tr>`).join("")).join("")}
     </tbody></table></div>
-  <h3 class="section-h">Medicines from before CMC: check status</h3>
+  <h3 class="section-h">Earlier medicines: replaced, stopped or unclear</h3>
   <div class="tbl-wrap stack"><table><tbody>
     ${H.previousMedicines.map(m=>`<tr><td class="med-name">${esc(m.name)}</td><td>${esc(m.note)}</td></tr>`).join("")}
   </tbody></table></div>
@@ -526,20 +528,21 @@ V.medguide = () => {
   const G = window.MEDGUIDE; if(!G) return "<p>Medicine guide data not found.</p>";
   const groups=[...new Set(G.meds.map(m=>m.group))];
   const ul = a => `<ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
-  const card = m => `<details class="mg"><summary><span class="mg-name">${esc(m.name)}</span><span class="mg-dose">${esc(m.strength)}</span></summary>
+  const card = m => `<details class="mg"><summary><span class="mg-name">${esc(m.name)}</span><span class="mg-dose">${esc(m.strength)}</span>${m.status?`<span class="pill mg-st">${esc(m.status)}</span>`:""}</summary>
     <div class="mg-body">
-      <div class="mg-sec full"><h4>Why CMC prescribed it</h4><p>${m.cmc}</p></div>
-      <div class="mg-sec"><h4>Benefits</h4>${ul(m.benefits)}</div>
-      <div class="mg-sec"><h4>Common side effects</h4>${ul(m.common)}</div>
-      <div class="mg-sec serious"><h4>Serious: get medical help</h4>${ul(m.serious)}</div>
-      <div class="mg-sec"><h4>Things to watch</h4>${ul(m.watch)}</div>
-      <div class="mg-sec stop full"><h4>If it's not taken or is stopped</h4><p>${m.ifStopped}</p></div>
-      <div class="mg-sec full"><h4>If a dose is missed</h4><p>${m.missed}</p></div>
+      ${m.update?`<div class="mg-sec full mg-upd"><h4>Update (12 Nov 2026)</h4><p>${m.update}</p></div>`:""}
+      <div class="mg-sec full"><h4>${m.whyTitle||"Why CMC prescribed it"}</h4><p>${m.cmc}</p></div>
+      ${m.benefits?`<div class="mg-sec"><h4>Benefits</h4>${ul(m.benefits)}</div>`:""}
+      ${m.common?`<div class="mg-sec"><h4>Common side effects</h4>${ul(m.common)}</div>`:""}
+      ${m.serious?`<div class="mg-sec serious"><h4>Serious: get medical help</h4>${ul(m.serious)}</div>`:""}
+      ${m.watch?`<div class="mg-sec"><h4>Things to watch</h4>${ul(m.watch)}</div>`:""}
+      ${m.ifStopped?`<div class="mg-sec stop full"><h4>If it's not taken or is stopped</h4><p>${m.ifStopped}</p></div>`:""}
+      ${m.missed?`<div class="mg-sec full"><h4>If a dose is missed</h4><p>${m.missed}</p></div>`:""}
       <div class="mg-sec full mg-src"><h4>Sources</h4>${m.sources.map(([l,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(l)} ↗</a>`).join("")}</div>
     </div></details>`;
   return `
   <h2 class="view-title">Medicine guide</h2>
-  <p class="lede">For each medicine on the CMC discharge list: why it was given, benefits, side effects, and what the official leaflets say about missing or stopping it. Everything comes from NHS / MedlinePlus leaflets (checked ${fmtDate(G.checked)}) or her CMC papers. Where a leaflet doesn't say something, we say so instead of guessing. <b>Never start, stop or change a medicine without her doctor.</b></p>
+  <p class="lede">For each medicine (CMC discharge list, plus the changes of 12 Nov 2026): why it was given, benefits, side effects, and what the official leaflets say about missing or stopping it. Everything comes from NHS / MedlinePlus leaflets (checked ${fmtDate(G.checked)}) or her CMC papers. Where a leaflet doesn't say something, we say so instead of guessing. <b>Never start, stop or change a medicine without her doctor.</b></p>
   <div class="mg-keys">${G.keyPoints.map(k=>`<div class="mg-key ${k.tone}">${k.text}</div>`).join("")}</div>
   ${groups.map(g=>`<div class="mg-group">${esc(g)}</div>`+G.meds.filter(m=>m.group===g).map(card).join("")).join("")}
   <p class="footer-note">Side-effect lists are not complete, and not everyone gets them. In an emergency, use the warning signs on the Overview tab. Leaflets are UK/US sources; Indian brands may differ, so check each pack's leaflet.</p>`;
@@ -609,7 +612,7 @@ V.progress = () => {
   </table></div>
   <h3 class="section-h">Things worth tracking at home</h3>
   <div class="grid two">
-    <div class="card small"><b>Blood pressure</b>: a few mornings a week, seated and rested. Write down the date, the time, and both numbers.</div>
+    <div class="card small"><b>Blood pressure</b>: for 7 days, morning and evening. Sit with her back supported for 5 minutes first, feet flat, and arm resting at chest height. Measure before any walk or exercise, and not within 30 minutes of tea or food. Take 2 readings 1–2 minutes apart on the same arm, and write down the exact numbers (no rounding), the time, and the time of her BP tablet (CDC / Blood Pressure UK guidance).</div>
     <div class="card small"><b>Weight</b>: once a week, same scale, morning. Ask the doctor for a safe target (booklet's 'desirable weight' is 42–46 kg).</div>
     <div class="card small"><b>Symptoms</b>: eyelid droop, numbness on the right side, speech, dizziness, falls, sleep, mood, bowel habit.</div>
     <div class="card small"><b>Milestones</b>: zoledronic drip date, end of the weekly vitamin D, physio sessions, any new tests.</div>

@@ -6,22 +6,23 @@
 // ============================================================================
 
 window.MEDGUIDE = {
-  checked: "2026-11-15",
+  checked: "2026-11-24",
 
   // Big-picture points, each taken from the leaflets below
   keyPoints: [
-    { tone: "bad", text: "<b>Never stop suddenly:</b> sertraline, duloxetine and pregabalin. All three NHS leaflets say stopping suddenly can cause withdrawal symptoms; the doctor reduces the dose gradually." },
-    { tone: "warn", text: "<b>Keep taking unless a doctor says stop:</b> aspirin and atorvastatin. The NHS says that if atorvastatin is stopped, cholesterol may go up again." },
-    { tone: "warn", text: "<b>Pregabalin and age:</b> the NHS says pregabalin 'might not be suitable for people older than 65'. She is 70. Ask her doctor (don't stop it suddenly)." },
-    { tone: "warn", text: "<b>Kidneys:</b> the leaflets for aspirin, atorvastatin, pregabalin, vitamin D, calcium and zoledronic acid all say the doctor should know about kidney problems. Her creatinine rose from 0.7 to 1.0, so ask about a kidney check (eGFR)." },
-    { tone: "warn", text: "<b>Aspirin with sertraline/duloxetine:</b> both NHS leaflets list NSAIDs such as aspirin among medicines that 'may not mix well' (the leaflets don't say why). Ask the doctor. CMC's warning signs include bleeding gums or blood in stools." },
-    { tone: "warn", text: "<b>Pantoprazole long-term:</b> the NHS says use over 1 year may raise the risk of bone fractures and low vitamin B12. She has osteoporosis, so ask whether she still needs it." },
-    { tone: "info", text: "<b>Falls:</b> pregabalin, sertraline and duloxetine can all cause dizziness or drowsiness (NHS). Our note: with her spine osteoporosis, a fall matters more." }
+    {"tone":"bad","text":"<b>Never stop suddenly:</b> duloxetine, pregabalin and clonazepam (Pandura), and sertraline if she still takes it. The NHS and MedlinePlus leaflets say stopping suddenly can cause withdrawal symptoms; the doctor reduces the dose gradually."},
+    {"tone":"bad","text":"<b>Naproxen course (Napro-A Plus, new 12 Nov):</b> the US naproxen label warns of a higher risk of heart attack and stroke. It says naproxen can interfere with low-dose aspirin, and that NSAIDs combined with BP tablets like olmesartan can harm the kidneys in older people. Ask the doctor about it; see 'For the doctor'."},
+    {"tone":"warn","text":"<b>Four drowsy medicines:</b> pregabalin, duloxetine, quetiapine and clonazepam all act on the brain. US guidance for older adults (AGS Beers Criteria 2023) advises avoiding 3 or more together, and avoiding benzodiazepines such as clonazepam, because of falls and fractures. With her spine osteoporosis, a fall matters more."},
+    {"tone":"warn","text":"<b>Keep taking unless a doctor says stop:</b> aspirin and the statin (rosuvastatin since 12 Nov, replacing atorvastatin). Don't take the old and the new statin together."},
+    {"tone":"warn","text":"<b>Pregabalin:</b> it is now Lyrinex CR 82.5, written morning and night. The US label for pregabalin CR says once daily after the evening meal. The NHS says pregabalin 'might not be suitable for people older than 65'. Ask her doctor (don't stop it suddenly)."},
+    {"tone":"warn","text":"<b>Kidneys:</b> naproxen, olmesartan (in Bizoran) and pregabalin all need care when kidney function is reduced. Her creatinine rose from 0.7 to 1.0, and a new creatinine test was ordered on 12 Nov."},
+    {"tone":"warn","text":"<b>Two acid reducers:</b> Rabe 20 (rabeprazole) plus the esomeprazole inside Napro-A Plus. The Rabe leaflet says these medicines 'may modestly increase the risk of hip, wrist and spine fracture'. Ask if both are needed."},
+    {"tone":"info","text":"<b>Constipation:</b> quetiapine, duloxetine, pregabalin and calcium can all cause constipation (NHS / MedlinePlus / labels). Ezylife is meant for occasional use."}
   ],
 
   meds: [
     {
-      name: "Aspirin", strength: "75 mg once daily, afternoon", group: "Stroke prevention",
+      name: "Aspirin", strength: "75 mg once daily (noon on the 12 Nov list: Ecosprin 75)", group: "Stroke prevention",
       cmc: "On the discharge list; the summary says she was 'managed with antiplatelet therapy' (aspirin is an antiplatelet).",
       benefits: ["Prevents blood clots and lowers the chance of a heart attack or stroke (NHS).", "Usually taken for a long time, sometimes for life (NHS)."],
       common: ["Indigestion and stomach ache", "Bleeding more easily than usual (for example, cuts take longer to stop bleeding)"],
@@ -32,7 +33,7 @@ window.MEDGUIDE = {
       sources: [["NHS: low-dose aspirin", "https://www.nhs.uk/medicines/low-dose-aspirin/"]]
     },
     {
-      name: "Atorvastatin", strength: "10 mg once daily, night", group: "Stroke prevention",
+      name: "Atorvastatin", strength: "10 mg once daily, night", status: "Replaced 12 Nov", update: "On 12 Nov Dr Rajib Das switched the statin to <b>Rosu 10 (rosuvastatin)</b>. See its card. Don't take both.", group: "Stroke prevention",
       cmc: "On the discharge list; the summary says she was managed with 'statins'. (Her LDL cholesterol was 162 in Dhaka in April; CMC didn't link the two in writing.)",
       benefits: ["Lowers cholesterol (NHS).", "Can prevent angina, heart attack and stroke in people with heart or blood-vessel disease (NHS).", "Usually taken long term (NHS)."],
       common: ["Headache", "Dizziness", "Feeling sick", "Constipation, diarrhoea, indigestion or wind", "Muscle aches and swollen joints", "Blocked or runny nose, nosebleeds", "Sleep problems"],
@@ -43,7 +44,7 @@ window.MEDGUIDE = {
       sources: [["NHS: atorvastatin", "https://www.nhs.uk/medicines/atorvastatin/"]]
     },
     {
-      name: "Sertraline", strength: "25 mg once daily, morning", group: "Mind & pain",
+      name: "Sertraline", strength: "25 mg once daily, morning", status: "Not on 12 Nov list", update: "Sertraline is not on the 12 Nov prescription or on the family's list. Confirm it was stopped on purpose, and gradually.", group: "Mind & pain",
       cmc: "Started by CMC Psychiatry for anxiety symptoms linked to stress.",
       benefits: ["An SSRI antidepressant used for depression, OCD, panic disorder, PTSD and social anxiety (NHS)."],
       common: ["Headaches", "Feeling or being sick", "Dizziness or drowsiness", "Dry mouth", "Diarrhoea", "Sleep problems", "Sexual problems", "Weight gain", "Most ease after a couple of weeks (NHS)"],
@@ -54,7 +55,7 @@ window.MEDGUIDE = {
       sources: [["NHS: sertraline", "https://www.nhs.uk/medicines/sertraline/"]]
     },
     {
-      name: "Duloxetine", strength: "20 mg once daily", group: "Mind & pain",
+      name: "Duloxetine", strength: "20 mg once daily", status: "Now 30 mg", update: "Since 12 Nov: <b>Diliner DR 30</b> (duloxetine 30 mg) at noon. The Diliner leaflet notes a bleeding risk with NSAIDs and aspirin.", group: "Mind & pain",
       cmc: "On the discharge list; the summary doesn't say why.",
       benefits: ["An SNRI antidepressant used for depression and anxiety, and for nerve pain such as fibromyalgia (NHS).", "For nerve pain it 'reduces the pain messages nerves send to your brain' (NHS)."],
       common: ["Headaches", "Feeling or being sick", "Dizziness or drowsiness", "Dry mouth", "Diarrhoea or constipation", "Insomnia", "Sexual problems", "Weight loss", "Most ease after a couple of weeks (NHS)"],
@@ -65,7 +66,7 @@ window.MEDGUIDE = {
       sources: [["NHS: duloxetine", "https://www.nhs.uk/medicines/duloxetine/"]]
     },
     {
-      name: "Pregabalin", strength: "75 mg twice daily", group: "Mind & pain",
+      name: "Pregabalin", strength: "75 mg twice daily", status: "Now CR 82.5", update: "Since 12 Nov: <b>Lyrinex CR 82.5</b> (slow-release pregabalin, NIPRO JMI), written morning and night (165 mg a day). The US label for pregabalin CR says 'once daily after an evening meal', swallowed whole. Its kidney example: a person with creatinine clearance of 50 mL/min 'would receive a single daily dose of 82.5 mg'. Confirm the schedule with the doctor.", group: "Mind & pain",
       cmc: "Rheumatology advised 'continuation of pregabalin 75 mg twice daily' for pains and tingling.",
       benefits: ["Used to treat epilepsy and anxiety, and also nerve pain (NHS).", "It takes at least a few weeks to work (NHS)."],
       common: ["Headaches", "Feeling sleepy, tired or dizzy", "Difficulty sleeping", "Diarrhoea", "Mood changes", "Feeling or being sick", "Swollen hands, arms, legs and feet", "Blurred vision", "Weight gain", "Memory problems"],
@@ -76,7 +77,7 @@ window.MEDGUIDE = {
       sources: [["NHS: about pregabalin", "https://www.nhs.uk/medicines/pregabalin/about-pregabalin/"], ["NHS: who can take it", "https://www.nhs.uk/medicines/pregabalin/who-can-and-cannot-take-pregabalin/"], ["NHS: pregabalin side effects", "https://www.nhs.uk/medicines/pregabalin/side-effects-of-pregabalin/"], ["NHS: how and when to take", "https://www.nhs.uk/medicines/pregabalin/how-and-when-to-take-pregabalin/"], ["NHS: common questions", "https://www.nhs.uk/medicines/pregabalin/common-questions-about-pregabalin/"]]
     },
     {
-      name: "Mego-XL", strength: "1 once daily", group: "Supplements",
+      name: "Mego-XL", strength: "1 once daily", status: "Not on 12 Nov list", update: "Not on the 12 Nov prescription, but on the family's 16 Nov list. Ask whether to continue.", group: "Supplements",
       cmc: "On the discharge list; the summary doesn't say why. Her B12 (529) and folate (16.5) were within range at CMC.",
       benefits: ["Pharmacy listings show methylcobalamin (vitamin B12) 1500 mcg + alpha-lipoic acid 100 mg + vitamin B6 3 mg + folic acid 1.5 mg. Check the strip says 'XL': a similarly named 'Mego Plus' is reported to contain pregabalin too.", "Vitamin B12 is used to prevent and treat B12 deficiency (NHS; that page covers a different form, cyanocobalamin).", "Folic acid is used to treat folate-deficiency anaemia (NHS)."],
       common: ["B12: acne-like spots or rash (NHS)", "Folic acid: bloating, wind, feeling sick, loss of appetite (NHS)"],
@@ -98,7 +99,7 @@ window.MEDGUIDE = {
       sources: [["MedlinePlus: calcium carbonate", "https://medlineplus.gov/druginfo/meds/a601032.html"], ["Apollo Pharmacy: Shelcal 500", "https://www.apollopharmacy.in/otc/shelcal-500-calcium-vitamin-d3-tablet-30-s"]]
     },
     {
-      name: "Calcirol 60,000 IU (vitamin D3)", strength: "Once a WEEK × 6 weeks, then once a MONTH × 6 months", group: "Bones",
+      name: "Calcirol 60,000 IU (vitamin D3)", status: "Not on 12 Nov list", update: "Not on the 12 Nov prescription. Ask whether to finish the monthly course. 'Calcirol' sold in Bangladesh may be a different strength; check the pack.", strength: "Once a WEEK × 6 weeks, then once a MONTH × 6 months", group: "Bones",
       cmc: "Her vitamin D was 27 ng/ml (lab range >30). Prescribed as a course.",
       benefits: ["Treats and prevents vitamin D deficiency (NHS).", "Helps the body take in calcium and phosphorus from food; low vitamin D can lead to weak bones and osteoporosis (NHS)."],
       common: ["Stomach pain", "Feeling sick", "Headache"],
@@ -109,7 +110,7 @@ window.MEDGUIDE = {
       sources: [["NHS: colecalciferol", "https://www.nhs.uk/medicines/colecalciferol/"], ["NHS: how and when to take", "https://www.nhs.uk/medicines/colecalciferol/how-and-when-to-take-colecalciferol/"], ["NHS: with other medicines", "https://www.nhs.uk/medicines/colecalciferol/taking-colecalciferol-with-other-medicines-and-herbal-supplements/"], ["NHS: side effects", "https://www.nhs.uk/medicines/colecalciferol/side-effects-of-colecalciferol/"]]
     },
     {
-      name: "Zoledronic acid (drip)", strength: "CMC sheet: 4 mg in 100 ml saline over 1 hour, at hometown", group: "Bones",
+      name: "Zoledronic acid (drip)", status: "Not given yet", update: "Still not given (family, 15 Nov). A bone density scan (BMD) was ordered on 12 Nov.", strength: "CMC sheet: 4 mg in 100 ml saline over 1 hour, at hometown", group: "Bones",
       cmc: "Chosen by the family for osteoporosis (spine T-score −3.4, 'Fracture Risk: High'). Pre-medicines on the sheet: Avil, hydrocortisone 100 mg, paracetamol 1 g. <b>Not given yet</b> (family, 15 Nov 2026).",
       benefits: ["Prevents and treats osteoporosis (MedlinePlus).", "For osteoporosis it is given 'once every 1 to 2 years' (MedlinePlus). The usual osteoporosis dose is 5 mg (FDA Reclast label), so confirm the 4 mg dose with the doctor."],
       common: ["Flu-like symptoms, fever, headache, chills, bone, joint or muscle pain, starting in the first 3 days; the FDA label says they usually settle within 3 days but may last up to 7–14 days (CMC wrote 2–3 days). The FDA label says paracetamol after the drip may reduce these symptoms; CMC's plan includes paracetamol", "Red, itchy or teary eyes", "Nausea, constipation, diarrhoea, stomach pain", "Pain or swelling where the drip went in"],
@@ -120,7 +121,7 @@ window.MEDGUIDE = {
       sources: [["MedlinePlus: zoledronic acid", "https://medlineplus.gov/druginfo/meds/a605023.html"], ["FDA label (Reclast, 5 mg for osteoporosis)", "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/021817s032lbl.pdf"]]
     },
     {
-      name: "Pantoprazole", strength: "40 mg once daily", group: "Stomach & bowel",
+      name: "Pantoprazole", strength: "40 mg once daily", status: "Replaced 12 Nov", update: "Replaced by <b>Rabe 20 (rabeprazole)</b> on 12 Nov. See its card. Don't take both.", group: "Stomach & bowel",
       cmc: "On the discharge list; the summary doesn't say why.",
       benefits: ["Reduces the amount of acid the stomach makes; treats heartburn, reflux and stomach ulcers (NHS).", "Usually taken first thing in the morning, about an hour before a meal (NHS)."],
       common: ["Most people have no side effects (NHS)", "Uncommon: headaches, diarrhoea, feeling sick, constipation, dry mouth, tiredness"],
@@ -131,7 +132,7 @@ window.MEDGUIDE = {
       sources: [["NHS: pantoprazole side effects", "https://www.nhs.uk/medicines/pantoprazole/side-effects-of-pantoprazole/"], ["NHS: how and when to take", "https://www.nhs.uk/medicines/pantoprazole/how-and-when-to-take-pantoprazole/"], ["NHS: common questions", "https://www.nhs.uk/medicines/pantoprazole/common-questions-about-pantoprazole/"]]
     },
     {
-      name: "Naturolax (isabgol / ispaghula husk)", strength: "1 tablespoon in a glass of water, twice daily", group: "Stomach & bowel",
+      name: "Naturolax (isabgol / ispaghula husk)", status: "Not on 12 Nov list", update: "Not on the 12 Nov prescription (the family gives isabgol each morning). Ezylife was added for hard stools. Ask whether to continue isabgol.", strength: "1 tablespoon in a glass of water, twice daily", group: "Stomach & bowel",
       cmc: "On the discharge list; the summary doesn't say why. (Her bowel problems were labelled probable IBS.)",
       benefits: ["A fibre laxative for constipation: bulks up poo with fluid so it's softer (NHS, Fybogel, the same ingredient).", "Takes 2 or 3 days to work (NHS). The NHS leaflet doesn't discuss IBS."],
       common: ["Wind and bloating, especially when fibre is increased suddenly"],
@@ -140,6 +141,209 @@ window.MEDGUIDE = {
       ifStopped: "Not stated. The NHS warns that without enough fluid, constipation may get worse.",
       watch: ["Always mix with plenty of cold water and drink plenty of fluid through the day; the NHS suggests adults aim for more than 2 litres.", "Take other medicines more than an hour before or after it (NHS interactions page; another NHS page says at least 30 minutes), and not right before bed (NHS).", "Before taking it, the NHS says to tell the doctor about tummy pain with feeling or being sick (could be a bowel blockage), or <b>difficulty swallowing or any throat problems</b>. That matters after a stroke.", "Try not to breathe in the powder (NHS)."],
       sources: [["NHS: Fybogel (ispaghula husk)", "https://www.nhs.uk/medicines/fybogel-ispaghula-husk/"], ["NHS: who can take it", "https://www.nhs.uk/medicines/fybogel-ispaghula-husk/who-can-and-cannot-take-fybogel/"], ["NHS: with other medicines", "https://www.nhs.uk/medicines/fybogel-ispaghula-husk/taking-fybogel-with-other-medicines-and-herbal-supplements/"], ["SastaSundar: Naturolax listing", "https://sastasundar.com/order-otc/naturolax-powder-100-g-zvu6uw"]]
+    },
+    {
+      "name": "Rosuvastatin (Rosu 10)",
+      "strength": "10 mg at night",
+      "group": "Stroke prevention",
+      "status": "New 12 Nov",
+      "whyTitle": "Why it was prescribed",
+      "cmc": "On 12 Nov Dr Rajib Das switched the statin from atorvastatin 10 to Rosu 10 (rosuvastatin, Popular Pharmaceuticals). The reason isn't written. Her LDL cholesterol was 162 in April, and a new lipid profile was ordered.",
+      "watch": [
+        "US label (Crestor): in Asian patients, 'Initiate CRESTOR at 5 mg orally once daily', because blood levels are about 2-fold higher; they 'may be at higher risk for myopathy' (muscle problems). Ask whether 10 mg is intended.",
+        "Report unexplained muscle pain or weakness.",
+        "A summary of the 2021 US stroke guideline (AAFP) gives an LDL goal of under 70 mg/dL after this type of stroke. Ask her doctor for her target."
+      ],
+      "sources": [
+        [
+          "Medex: Rosu 10",
+          "https://medex.com.bd/brands/3401"
+        ],
+        [
+          "DailyMed: Crestor label",
+          "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=crestor"
+        ],
+        [
+          "AAFP: 2021 stroke prevention guideline summary",
+          "https://www.aafp.org/pubs/afp/issues/2022/0100/p99.html"
+        ]
+      ]
+    },
+    {
+      "name": "Bizoran 5/20 (amlodipine + olmesartan)",
+      "strength": "1 tablet at night",
+      "group": "Blood pressure",
+      "status": "Current BP tablet",
+      "whyTitle": "Why it was prescribed",
+      "cmc": "A blood pressure tablet (Beximco) with two medicines: amlodipine 5 mg and olmesartan 20 mg. CMC's discharge list had no BP tablet. In April she took Olmesan 20 (olmesartan alone). On 12 Nov: Bizoran 5/20 at night.",
+      "watch": [
+        "Bizoran leaflet: its BP-lowering effect 'may be attenuated by NSAIDs' (such as naproxen), and 'Blood pressure, renal function and electrolytes should be closely monitored' with that combination.",
+        "Amlodipine: ankle swelling is a known side effect that depends on dose (US Azor label: 3.0% at 5 mg vs 10.8% at 10 mg).",
+        "Olmesartan: the label advises checking kidney function and potassium periodically.",
+        "Rarely, olmesartan causes severe long-lasting diarrhoea with weight loss, months to years after starting (US label). Tell the doctor if that happens.",
+        "Don't take Olmesan 20 as well; it is already inside Bizoran."
+      ],
+      "sources": [
+        [
+          "Medex: Bizoran 5/20",
+          "https://medex.com.bd/brands/3077/bizoran-5-mg-tablet"
+        ],
+        [
+          "DailyMed: Azor (amlodipine + olmesartan) label",
+          "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c5535406-b63b-49aa-88b9-169aaf0ed08e"
+        ],
+        [
+          "NHS: amlodipine",
+          "https://www.nhs.uk/medicines/amlodipine/"
+        ]
+      ]
+    },
+    {
+      "name": "Quetiapine (Quiet 25)",
+      "strength": "25 mg at night",
+      "group": "Mind & pain",
+      "status": "Restarted",
+      "whyTitle": "Why it was prescribed",
+      "cmc": "She took quetiapine 25 mg at bedtime before the stroke. CMC left it off the discharge list. It appears again on the 8 Apr and 12 Nov prescriptions (Quiet 25, Incepta). The reason isn't written.",
+      "common": [
+        "Constipation (NHS)",
+        "Shaking, muscle stiffness or difficulty moving (NHS)",
+        "Dizziness, feeling unsteady (MedlinePlus)"
+      ],
+      "serious": [
+        "'Uncontrollable movements of your arms, legs, tongue, face, or lips' (MedlinePlus): tell the doctor"
+      ],
+      "watch": [
+        "US label: it may cause sleepiness, a drop in BP on standing and unsteadiness, 'which may lead to falls and, consequently, fractures'. It advises caution with BP medicines.",
+        "US guidance for older adults (Beers 2023) advises avoiding antipsychotics except for specific approved uses. Ask why it was restarted.",
+        "The label's boxed warning is about older people with dementia; she has no dementia diagnosis."
+      ],
+      "sources": [
+        [
+          "NHS: quetiapine side effects",
+          "https://www.nhs.uk/medicines/quetiapine/side-effects-of-quetiapine/"
+        ],
+        [
+          "MedlinePlus: quetiapine",
+          "https://medlineplus.gov/druginfo/meds/a698019.html"
+        ],
+        [
+          "Medex: Quiet 25",
+          "https://medex.com.bd/brands/4405/quiet-25-mg-tablet"
+        ]
+      ]
+    },
+    {
+      "name": "Clonazepam (Pandura 0.5)",
+      "strength": "0.5 mg at night",
+      "group": "Mind & pain",
+      "status": "New 12 Nov",
+      "whyTitle": "Why it was prescribed",
+      "cmc": "New on 12 Nov (Pandura 0.5, NIPRO JMI), at night. The reason isn't written. The Bangladesh listing gives panic disorder (and a type of epilepsy) as its uses. It is a benzodiazepine.",
+      "common": [
+        "Drowsiness (about 50% of patients) and unsteadiness/ataxia (about 30%), per the Pandura leaflet"
+      ],
+      "watch": [
+        "US guidance for older adults (Beers 2023): benzodiazepines 'increase the risk of cognitive impairment, delirium, falls, fractures'. The recommendation is to avoid them.",
+        "With pregabalin, duloxetine and quetiapine she is on 4 brain-acting medicines; Beers advises avoiding 3 or more together.",
+        "'May be habit-forming' (MedlinePlus)."
+      ],
+      "ifStopped": "MedlinePlus says don't stop it suddenly; the doctor reduces it gradually.",
+      "sources": [
+        [
+          "Medex: Pandura 0.5",
+          "https://medex.com.bd/brands/17226"
+        ],
+        [
+          "MedlinePlus: clonazepam",
+          "https://medlineplus.gov/druginfo/meds/a682279.html"
+        ],
+        [
+          "AGS Beers Criteria 2023 (PDF)",
+          "https://geriatrictoolkit.missouri.edu/drug/Beers-Criteria-AGS-2023.pdf"
+        ]
+      ]
+    },
+    {
+      "name": "Rabeprazole (Rabe 20)",
+      "strength": "20 mg morning and night, before food",
+      "group": "Stomach & bowel",
+      "status": "New 12 Nov",
+      "whyTitle": "Why it was prescribed",
+      "cmc": "Replaced pantoprazole on 12 Nov (Rabe 20, Aristopharma), twice daily before food. It is an acid reducer (PPI).",
+      "watch": [
+        "Rabe leaflet: PPIs 'may modestly increase the risk of hip, wrist and spine fracture'. Low magnesium can occur after 3 months or more, and vitamin B12 absorption may fall.",
+        "Napro-A Plus also contains an acid reducer (esomeprazole), so during that course she takes two. Ask if that is intended.",
+        "Beers 2023 advises against scheduled PPI use for more than 8 weeks, except in high-risk people (for example, during ongoing NSAID use)."
+      ],
+      "sources": [
+        [
+          "Medex: Rabe 20",
+          "https://medex.com.bd/brands/2261"
+        ],
+        [
+          "AGS Beers Criteria 2023 (PDF)",
+          "https://geriatrictoolkit.missouri.edu/drug/Beers-Criteria-AGS-2023.pdf"
+        ]
+      ]
+    },
+    {
+      "name": "Sodium picosulfate (Ezylife 10)",
+      "strength": "10 mg at night, only if the stool is hard",
+      "group": "Stomach & bowel",
+      "status": "New 12 Nov",
+      "whyTitle": "Why it was prescribed",
+      "cmc": "New on 12 Nov (Ezylife 10, Pharmasia), at night 'পায়খানা কষা হলে' (if the stool is hard). It is a stimulant laxative.",
+      "watch": [
+        "Gut bacteria activate it in the large bowel. Take it at night for an effect the next morning (Medex).",
+        "UK label: it is for occasional constipation and 'should not be taken on a continuous daily basis for more than five days without investigating the cause'.",
+        "UK label: dehydration risk is higher in older people and with kidney problems. Medex: too much can cause low potassium. She should drink enough fluid.",
+        "Dizziness or fainting has been reported, mostly linked to straining (UK label).",
+        "Not for use with a bowel blockage or severe dehydration (Medex)."
+      ],
+      "sources": [
+        [
+          "Medex: Ezylife 10",
+          "https://medex.com.bd/brands/26988"
+        ],
+        [
+          "UK label (Dulcolax Pico)",
+          "https://www.medicines.org.uk/emc/product/11634"
+        ]
+      ]
+    },
+    {
+      "name": "Naproxen + esomeprazole (Napro-A Plus 375/20)",
+      "strength": "Morning and night for 10 or 15 days (digit unclear)",
+      "group": "Short course",
+      "status": "New 12 Nov · ask doctor",
+      "whyTitle": "Why it was prescribed",
+      "cmc": "New on 12 Nov (ACME). Naproxen is a painkiller and anti-inflammatory (NSAID); esomeprazole is built in to protect the stomach. The reason isn't written; the complaints listed were joint pains and burning pain.",
+      "serious": [
+        "Signs of stomach bleeding: black, tarry stools or vomiting blood. CMC's warning signs also include blood in stool."
+      ],
+      "watch": [
+        "US naproxen label, boxed warning: 'increased risk of serious cardiovascular thrombotic events, including myocardial infarction and stroke'. Also: 'Elderly patients… at greater risk for serious GI events.'",
+        "Label: naproxen 'interfered with the antiplatelet effect of low-dose immediate-release aspirin', and it is 'not a substitute' for aspirin.",
+        "Label: NSAIDs with BP tablets like olmesartan (ARBs) 'may result in deterioration of renal function' in older people, and NSAIDs can raise BP.",
+        "Label: watch for bleeding with aspirin and with SNRIs such as duloxetine.",
+        "Beers 2023: avoid short-term scheduled NSAID use together with antiplatelets such as aspirin, unless alternatives don't work and stomach protection is given.",
+        "Medex: take it at least 30 minutes before meals; not recommended in moderate to severe kidney impairment."
+      ],
+      "sources": [
+        [
+          "Medex: Napro-A Plus",
+          "https://medex.com.bd/brands/11549"
+        ],
+        [
+          "DailyMed: naproxen label",
+          "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0de6d673-fa76-e9c0-e063-6394a90a9ded"
+        ],
+        [
+          "AGS Beers Criteria 2023 (PDF)",
+          "https://geriatrictoolkit.missouri.edu/drug/Beers-Criteria-AGS-2023.pdf"
+        ]
+      ]
     }
   ]
 };

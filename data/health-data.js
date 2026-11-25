@@ -17,7 +17,7 @@ window.HEALTH = {
       { label: "CMC MRD no.", value: "26R020595" },
       { label: "BSH Dhaka hospital no.", value: "H12012131866" }
     ],
-    lastUpdated: "2026-11-15"
+    lastUpdated: "2026-11-24"
   },
 
   // ---------------------------------------------------------------------------
@@ -252,6 +252,52 @@ window.HEALTH = {
       summary: "Once a week for 6 weeks (until about mid-July 2026), then once a month for 6 months (until about January 2027).",
       details: [],
       docs: ["cmc-discharge"]
+    },
+    {
+      "id": "e-qdm",
+      "date": "8 Apr 2026",
+      "sortDate": "2026-04-08",
+      "phase": "dhaka",
+      "place": "S.P.R.C & Neurology Hospital, Dhaka (chamber)",
+      "title": "Seen by Prof. Quazi Deen Mohammad (neurologist)",
+      "summary": "Three days after the stroke. He recorded the left eyelid droop, right-side numbness, a left-sided headache, palpitations and restlessness, with BP 100/60. Quiet 25 (quetiapine) was among the medicines added.",
+      "details": [
+        "Her BP tablet at that time was Olmesan 20 (olmesartan).",
+        "Several handwritten medicine names could not be read reliably; ask the family or the pharmacy what was bought."
+      ],
+      "docs": [
+        "dhk-qdm-rx"
+      ]
+    },
+    {
+      "id": "e-newsym",
+      "date": "~Oct–Nov 2026",
+      "sortDate": "2026-10-15",
+      "phase": "home",
+      "place": "Home, Dhaka",
+      "title": "New symptoms: burning pain, straining at stool, furrowed forehead",
+      "summary": "Reported in the family's email to Dr Aditya Nair (CMC). For over a month, an increasing burning feeling, now intense, from the right shoulder and back down to the right leg. It is worse after the morning exercises and the afternoon walk, and not felt while asleep. For about 2 weeks she has strained very hard even with soft stool, with a painful swelling on the left side of the anus afterwards (no bleeding). Home BP about 125–140/80. Her forehead has been furrowed most of the time for about a month.",
+      "details": [
+        "CMC's discharge sheet says to come for review 'earlier if new/worse'.",
+        "See 'For the doctor' for the questions these raise, and the Overview page for warning signs that need same-day care."
+      ],
+      "docs": []
+    },
+    {
+      "id": "e-rd",
+      "date": "12 Nov 2026",
+      "sortDate": "2026-11-12",
+      "phase": "home",
+      "place": "Lab Science Diagnostic, Green Road, Dhaka (chamber)",
+      "title": "Seen by Dr Rajib Das (neurologist): medicines changed",
+      "summary": "Seen for burning pain, joint pains and constipation; BP 120/80. Several medicines were changed and three added: a naproxen course, clonazepam and a laxative. Tests advised: blood count, creatinine, lipid profile, thyroid (FT4, TSH), and bone density (BMD).",
+      "details": [
+        "The test results are not in the app yet. Please send them when available.",
+        "The family's own medicine list from 16 Nov did not match this prescription. Check the strips to confirm what she actually takes."
+      ],
+      "docs": [
+        "dhk-rd-rx"
+      ]
     },
     {
       id: "e-review",
@@ -512,6 +558,54 @@ window.HEALTH = {
       ],
       plain: "A painless ultrasound-style test that measures how <b>stiff</b> the liver is (stiffness means scarring) and how <b>fatty</b> it is. The report says <b>significant scarring is unlikely</b> and it <b>does not suggest fatty liver</b>. Together with the negative Hepatitis C virus test, this is reassuring. Repeat occasionally as advised.",
       terms: ["fibroscan", "hcv"]
+    },
+    {
+      "id": "dhk-qdm-rx",
+      "title": "Prescription: Prof. Quazi Deen Mohammad (3 days after the stroke)",
+      "hospital": "Dhaka chamber: S.P.R.C & Neurology Hospital",
+      "date": "2026-04-08",
+      "category": "Prescription",
+      "doctor": "Prof. Dr. Quazi Deen Mohammad (Professor of Neurology; former Director, National Institute of Neurosciences & Hospital)",
+      "pages": [
+        43
+      ],
+      "keyFindings": [
+        "Dx: 'Acute ischemic stroke, HTN (05.04.26)'",
+        "Complaints: 'Lt sided ptosis', 'Rt sided numbness', 'Lt sided headache', palpitation, restlessness",
+        "BP 100/60 mmHg",
+        "Medicines she was already taking (D/H), all at night: Olmesan 20 (olmesartan, a BP tablet), Ecosprin 75 (aspirin), 'Frenvas/Fenvas 10' (no matching brand found), Minibet 100 (a ciprofibrate tablet, for blood fats). 'Pregaba 75' is crossed out.",
+        "Added in blue ink on the right: 'Quiet 25' (quetiapine), written '1–0–2' (unusual; confirm), plus three lines that two independent readings could not read reliably (one may be 'Maxpro', an esomeprazole acid reducer)",
+        "Age written as 75 (she was 69)"
+      ],
+      "plain": "This prescription is from a senior Dhaka neurologist who saw her <b>3 days after the stroke</b>, two months before CMC. His notes match CMC's picture: <b>left eyelid droop and a left-sided headache, with numbness on the right side</b>. That is the typical pattern of a stroke on the left side of the brainstem. Her BP was on the low side that day (100/60).<br><br>The 'D/H' (drug history) list shows what she was already taking. It shows her <b>blood pressure tablet in April was Olmesan 20 (olmesartan)</b>, which CMC's list did not mention. Several handwritten words could not be read reliably by two independent checks, including most of the new medicines in blue ink, so we leave them as unknown rather than guess. Ask the family or the pharmacy what was bought with this prescription.",
+      "terms": [
+        "ptosis"
+      ]
+    },
+    {
+      "id": "dhk-rd-rx",
+      "title": "Prescription: Dr Rajib Das (new symptoms, current medicines)",
+      "hospital": "Dhaka chamber: Lab Science Diagnostic, Green Road",
+      "date": "2026-11-12",
+      "category": "Prescription",
+      "doctor": "Dr. Rajib Das (Consultant Neurologist, Bangladesh Medical University, ex-PG Hospital)",
+      "pages": [
+        44
+      ],
+      "keyFindings": [
+        "Dx: 'Ischemic stroke (June 2026) (LMS)'. The stroke was on 5 Apr 2026; June was the CMC admission. 'LMS' probably means lateral medullary syndrome; it isn't spelled out.",
+        "Present complaints: 'multiple joint pain', 'Burning pain in all 4 limbs', 'Constipation'",
+        "BP 120/80 · plantar response 'Flexor (B/L)', the normal result of the sole-of-the-foot reflex test",
+        "11 medicines (see the Medicines tab). The first 8 are bracketed with 'চলবে' (continue).",
+        "New: Pandura 0.5 (clonazepam) at night · Napro-A Plus 375/20 (naproxen + esomeprazole) morning and night for 10 or 15 days (the digit is unclear) · Ezylife 10 (sodium picosulfate, a laxative) at night 'পায়খানা কষা হলে' (if the stool is hard)",
+        "Changed: statin is now Rosu 10 (rosuvastatin) · pregabalin is now Lyrinex CR 82.5 morning and night · duloxetine is Diliner DR 30 · acid reducer is Rabe 20 (rabeprazole) morning and night 'খাবার আগে' (before food) · BP tablet is Bizoran 5/20 (amlodipine 5 mg + olmesartan 20 mg)",
+        "Tests advised: CBC, serum creatinine, lipid profile, FT4, TSH, BMD (bone density)",
+        "Age written as 73 (she is 70); name written 'Kona Saha'"
+      ],
+      "plain": "This is the newest paper. It is from a neurologist at Bangladesh Medical University, for the <b>new burning pain, joint pains and constipation</b>. He wrote the burning as being in <b>all four limbs</b>; the family describes it as mainly the right side. The reflex he recorded ('plantar flexor') is the normal result.<br><br>He <b>changed several medicines</b> and added three new ones: a <b>painkiller course (naproxen)</b>, a <b>calming medicine at night (clonazepam)</b>, and a <b>laxative</b> for when the stool is hard. He also ordered blood tests (blood count, kidney, cholesterol, thyroid) and a new <b>bone density scan</b>.<br><br>A few points are worth checking with him; see 'For the doctor'. Naproxen is being taken with aspirin and a BP tablet. She is on two acid reducers at once while on Napro-A Plus. Four of her medicines can cause drowsiness. The pregabalin CR timing needs checking. Sertraline, Mego-XL and vitamin D (Calcirol) from CMC are not on this list.",
+      "terms": [
+        "lateral-medullary"
+      ]
     }
   ],
 
@@ -521,13 +615,38 @@ window.HEALTH = {
   // ---------------------------------------------------------------------------
   conditions: [
     {
+      "name": "New burning pain (Oct–Nov 2026)",
+      "status": "active",
+      "statusLabel": "New · needs review",
+      "since": "~Oct 2026",
+      "what": "Burning feeling, mainly from the right shoulder/back down to the right leg (family); 'burning pain in all 4 limbs' on the 12 Nov prescription. Worse after exercise and walks, not felt while asleep.",
+      "now": "Increasing over a month+. Possible explanations to ask about include pain from the stroke itself (central post-stroke pain; the right side is where CMC found reduced feeling), a lower-back nerve problem, or a spine fracture (osteoporosis, drip not given). Several can co-exist; only an examination can tell.",
+      "plan": "12 Nov: pregabalin changed to Lyrinex CR, duloxetine 30 mg, naproxen course. Ask for an earlier review (CMC: 'earlier if new/worse'). Same-day care for new leg weakness, numbness around the bottom/genitals, or bladder/bowel control problems.",
+      "docs": [
+        "dhk-rd-rx",
+        "cmc-discharge"
+      ]
+    },
+    {
+      "name": "Constipation with straining (Nov 2026)",
+      "status": "active",
+      "statusLabel": "New · needs examination",
+      "since": "~early Nov 2026",
+      "what": "Hard straining even with soft stool, then a painful swelling on the left side of the anus (no bleeding); she says the area feels narrowed. She has a 10-year IBS-type history.",
+      "now": "Several of her medicines can cause constipation (quetiapine, duloxetine, pregabalin, calcium). The swelling needs someone to look at it; a colorectal surgeon or gastroenterologist usually does this.",
+      "plan": "12 Nov: Ezylife 10 at night if the stool is hard. Ask about an examination, and whether to continue isabgol.",
+      "docs": [
+        "dhk-rd-rx"
+      ]
+    },
+    {
       name: "Stroke: left lateral medullary infarct",
       status: "active",
       statusLabel: "Recovering · prevent a second one",
       since: "5 Apr 2026",
       what: "A small stroke in the left side of the lowest part of the brainstem, from blockage of a tiny artery (small vessel disease).",
       now: "Mild left eyelid droop and 10–20% reduced feeling on the right side (June). Full strength 5/5; gait described as antalgic (pain-related).",
-      plan: "Aspirin 75 mg + atorvastatin as prescribed, BP and cholesterol control, physio/OT, review in ~Dec 2026.",
+      plan: "Aspirin 75 mg + a statin (rosuvastatin 10 mg since 12 Nov), BP and cholesterol control, physio/OT, review in ~Dec 2026 (earlier if new or worse symptoms, per CMC).",
       docs: ["cmc-discharge", "bsh-mri"]
     },
     {
@@ -566,7 +685,7 @@ window.HEALTH = {
       statusLabel: "Treated",
       since: "known",
       what: "LDL 162, triglycerides 235 in April.",
-      now: "On atorvastatin 10 mg (on the CMC discharge list; the summary says she was 'managed with antiplatelet therapy, statins').",
+      now: "CMC discharged her on atorvastatin 10 mg ('managed with antiplatelet therapy, statins'). On 12 Nov Dr Rajib Das switched it to rosuvastatin 10 mg and ordered a new lipid profile.",
       plan: "Repeat the lipid profile and ask what LDL target the doctors want.",
       docs: ["bsh-labs"]
     },
@@ -663,27 +782,38 @@ window.HEALTH = {
   ],
 
   // ---------------------------------------------------------------------------
-  // MEDICINES (from CMC discharge 5 Jun 2026)
+  // MEDICINES: current list = Dr Rajib Das prescription, 12 Nov 2026
   // ---------------------------------------------------------------------------
+  medicinesAsOf: "12 Nov 2026",
   medicines: [
-    { name: "Aspirin", dose: "75 mg", when: "Once daily, afternoon", purpose: "Blood thinner (antiplatelet). Stops platelets clumping, which lowers the risk of another stroke.", note: "Stroke-prevention medicine prescribed by CMC. Don't stop without a doctor's advice. CMC lists bleeding gums or blood in stools as warning signs." , group: "Stroke prevention"},
-    { name: "Atorvastatin", dose: "10 mg", when: "Once daily, night", purpose: "Lowers cholesterol (LDL); can help prevent heart attack and stroke in people with blood-vessel disease (NHS).", note: "Report unexplained muscle pain.", group: "Stroke prevention" },
-    { name: "Sertraline", dose: "25 mg", when: "Once daily, morning", purpose: "For anxiety and mood (an SSRI). Started at CMC by Psychiatry.", note: "In general takes a few weeks to work fully.", group: "Mind & pain" },
-    { name: "Duloxetine", dose: "20 mg", when: "Once daily", purpose: "An SNRI; in general used for chronic pain and tingling, and for mood. The discharge summary doesn't state the reason.", note: "", group: "Mind & pain" },
-    { name: "Pregabalin", dose: "75 mg", when: "Twice daily", purpose: "Nerve-type pain and tingling. Rheumatology wrote 'continuation of pregabalin 75 mg twice daily', so she may have been taking it before CMC.", note: "In general can cause drowsiness or dizziness; take care to prevent falls (she has osteoporosis).", group: "Mind & pain" },
-    { name: "Mego-XL", dose: "1", when: "Once daily", purpose: "Nerve vitamins. Pharmacy listings show methylcobalamin (B12) + alpha-lipoic acid + vitamin B6 + folic acid.", note: "Composition from pharmacy listings; check the pack.", group: "Supplements" },
-    { name: "Shelcal", dose: "500 mg", when: "Once daily", purpose: "Calcium + vitamin D3 for bones (pharmacy listings: 500 mg elemental calcium + vitamin D3 250 IU).", note: "", group: "Bones" },
-    { name: "Calcirol", dose: "60,000 IU", when: "Weekly × 6 weeks, then monthly × 6 months", purpose: "High-dose vitamin D3. Her level was slightly below the lab's range (27; lab wants >30).", note: "Weekly part ≈ until mid-July 2026; monthly ≈ until Jan 2027.", group: "Bones" },
-    { name: "Zoledronic acid (IV drip)", dose: "4 mg in 100 ml NS over 1 hr", when: "To be given at their hometown 'as per protocol' (frequency not stated; status unknown)", purpose: "Strengthens bones and cuts fracture risk. The usual osteoporosis dose is 5 mg once a year, so confirm the 4 mg dose with the doctor. Pre-medicines: Inj. Avil, Inj. Hydrocortisone 100 mg, Tab. Paracetamol 1 g.", note: "CMC: mild fever with muscle aches may persist 2–3 days; paracetamol 1 g as needed (max 3 g/day, 6 h apart). Record the date given.", group: "Bones" },
-    { name: "Pantoprazole", dose: "40 mg", when: "Once daily", purpose: "Reduces stomach acid (in general often given to protect the stomach alongside aspirin; reason not stated).", note: "In general taken before breakfast; confirm with the pharmacist.", group: "Stomach & bowel" },
-    { name: "Naturolax powder", dose: "1 tablespoon in a glass of water", when: "Twice daily", purpose: "Isabgol (psyllium husk) fibre, which softens and bulks up stools. The discharge summary doesn't say why it was prescribed (her bowel problems were labelled probable IBS).", note: "Drink plenty of water with it.", group: "Stomach & bowel" }
+    {"name":"Ecosprin (aspirin)","dose":"75 mg","when":"Noon (0+1+0)","group":"Stroke prevention","purpose":"Blood thinner (antiplatelet). Stops platelets clumping, which lowers the risk of another stroke.","note":"Don't stop without a doctor's advice. Warning signs listed by CMC: bleeding gums or blood in stools."},
+    {"name":"Rosu (rosuvastatin)","dose":"10 mg","when":"Night (0+0+1)","group":"Stroke prevention","purpose":"A statin that lowers cholesterol. It replaced atorvastatin 10 mg from CMC on 12 Nov.","note":"The US label suggests starting at 5 mg in Asian patients, because blood levels run higher. Ask whether 10 mg is intended. Report unexplained muscle pain. A lipid test was ordered."},
+    {"name":"Bizoran 5/20","dose":"amlodipine 5 mg + olmesartan 20 mg","when":"Night (0+0+1)","group":"Blood pressure","purpose":"Blood pressure tablet with two medicines in one (Beximco). In April she took olmesartan 20 alone (Olmesan 20).","note":"The Bizoran leaflet says BP, kidney function and salts (electrolytes) should be monitored. Pain medicines like naproxen can weaken its effect. Don't take Olmesan 20 as well."},
+    {"name":"Lyrinex CR (pregabalin, slow-release)","dose":"82.5 mg","when":"Morning and night (1+0+1) = 165 mg a day","group":"Mind & pain","purpose":"Nerve pain. It replaced plain pregabalin 75 mg twice daily from CMC.","note":"The US label for pregabalin CR says take it once daily after the evening meal, swallowed whole. Here it is written twice daily, so confirm with the doctor. Can cause dizziness and drowsiness. Don't stop suddenly."},
+    {"name":"Diliner DR (duloxetine)","dose":"30 mg","when":"Noon (0+1+0)","group":"Mind & pain","purpose":"SNRI used for nerve pain and mood. Up from 20 mg at CMC.","note":"Don't stop suddenly. Raises bleeding risk together with aspirin or naproxen (Diliner leaflet)."},
+    {"name":"Quiet 25 (quetiapine)","dose":"25 mg","when":"Night (0+0+1)","group":"Mind & pain","purpose":"An antipsychotic, often used at low dose for sleep or anxiety; the reason isn't written. She took it before the stroke, and CMC had left it off.","note":"Can cause drowsiness, unsteadiness and constipation (MedlinePlus)."},
+    {"name":"Pandura 0.5 (clonazepam)","dose":"0.5 mg","when":"Night (0+0+1)","group":"Mind & pain","purpose":"NEW. A benzodiazepine (calming/sedative). The prescription doesn't give the reason; the Bangladesh listing gives panic disorder as its use.","note":"Can cause drowsiness and unsteadiness, and may be habit-forming; don't stop it suddenly (MedlinePlus). US guidance for older adults (AGS Beers Criteria 2023) advises avoiding benzodiazepines because of falls and fractures. Ask the doctor."},
+    {"name":"Rabe 20 (rabeprazole)","dose":"20 mg","when":"Morning and night, before food (1+0+1)","group":"Stomach & bowel","purpose":"Reduces stomach acid. It replaced pantoprazole from CMC.","note":"Napro-A Plus also contains an acid reducer (esomeprazole), so ask whether both are needed during the course. Long-term use is linked to fractures (Rabe leaflet)."},
+    {"name":"Ezylife 10 (sodium picosulfate)","dose":"10 mg","when":"Night, only 'if the stool is hard' (পায়খানা কষা হলে)","group":"Stomach & bowel","purpose":"NEW. A stimulant laxative that works in the large bowel overnight.","note":"UK label: for occasional constipation; not daily for more than 5 days without finding the cause. Too much can cause dehydration and low potassium. Ask whether to continue isabgol too."},
+    {"name":"Shelcal 500","dose":"500 mg calcium (+ vitamin D3)","when":"Morning (1+0+0)","group":"Bones","purpose":"Calcium with vitamin D3 for bone strength.","note":"If bought in Bangladesh, it is probably Shelcal-D (500 mg calcium + 200 IU D3). Calcium can add to constipation."},
+    {"name":"Zoledronic acid (IV drip)","dose":"CMC sheet: 4 mg in 100 ml NS over 1 hr","when":"NOT given yet (family, 15 Nov 2026)","group":"Bones","purpose":"Strengthens bones and cuts fracture risk. The usual osteoporosis dose is 5 mg once a year, so confirm the dose. Pre-medicines per CMC: Inj. Avil, Inj. Hydrocortisone 100 mg, Tab. Paracetamol 1 g.","note":"It isn't mentioned on the 12 Nov prescription, which ordered a bone density scan. Ask when it should be given."},
+    {"name":"Napro-A Plus 375/20","dose":"naproxen 375 mg + esomeprazole 20 mg","when":"Morning and night (1+0+1) for 10 or 15 days (digit unclear)","group":"Short course","purpose":"NEW. A painkiller/anti-inflammatory (NSAID) with built-in stomach protection.","note":"Check with the doctor (see 'For the doctor'). The naproxen label warns of higher heart-attack and stroke risk. It can interfere with low-dose aspirin, raise BP, and strain the kidneys together with BP tablets like olmesartan, and bleeding risk is higher with aspirin and duloxetine. Medex says take it at least 30 minutes before meals."}
   ],
   previousMedicines: [
-    { name: "Fluoxetine 20 mg", note: "Before CMC. Not on the discharge list; sertraline appears to replace it. Confirm it was stopped." },
-    { name: "Quetiapine 25 mg at bedtime", note: "Before CMC. Not on the discharge list. Confirm." },
-    { name: "Betahistine", note: "Used intermittently for vertigo." },
-    { name: "Osteoporosis treatment since 2019", note: "History says 'on treatment since 2019', but the medicine isn't named. Confirm." },
-    { name: "Blood pressure tablet(s)", note: "'On regular treatment for 15 years', but no BP tablet is named on the CMC discharge list. Confirm what she is taking." }
+    {"name":"Atorvastatin 10 mg (CMC)","note":"Replaced by Rosu 10 (rosuvastatin) on 12 Nov. Don't take both."},
+    {"name":"Pregabalin 75 mg twice daily (CMC)","note":"Replaced by Lyrinex CR 82.5 on 12 Nov. The family's 16 Nov list said 'daily 1', so check which one she takes."},
+    {"name":"Duloxetine 20 mg (CMC)","note":"Replaced by Diliner DR 30 on 12 Nov."},
+    {"name":"Pantoprazole 40 mg (CMC)","note":"Replaced by Rabe 20 (rabeprazole) on 12 Nov. Don't take both."},
+    {"name":"Sertraline 25 mg (CMC)","note":"Not on the 12 Nov list, or on the family's 16 Nov list. Confirm it was stopped on purpose. It should be reduced gradually, not stopped suddenly."},
+    {"name":"Mego-XL (CMC)","note":"Not on the 12 Nov list, but on the family's 16 Nov list. Ask whether to continue."},
+    {"name":"Calcirol (vitamin D) monthly (CMC, until ~Jan 2027)","note":"Not on the 12 Nov list. Ask whether to finish the course. 'Calcirol' sold in Bangladesh may be a different strength from CMC's 60,000 IU; check the pack."},
+    {"name":"Naturolax / isabgol (CMC)","note":"Not on the 12 Nov list; the family gives isabgol every morning. Ask whether to continue alongside Ezylife."},
+    {"name":"Liquid antacid","note":"On the family's 16 Nov list, not on any prescription. Antacids should be taken 2–4 hours apart from other medicines (NHS)."},
+    {"name":"Olmesan 20 (olmesartan), Apr 2026","note":"Now part of Bizoran 5/20. Don't take both."},
+    {"name":"'Frenvas/Fenvas 10' and Minibet 100, Apr 2026","note":"On the 8 Apr drug history. No brand called Fenvas was found; Minibet 100 is ciprofibrate (for blood fats). Neither is on later lists. Confirm they were stopped."},
+    {"name":"Fluoxetine 20 mg (before the stroke)","note":"Not on any later list. Confirm it was stopped."},
+    {"name":"Betahistine","note":"Used intermittently for vertigo."},
+    {"name":"Osteoporosis treatment since 2019","note":"History says 'on treatment since 2019', but the medicine isn't named. Confirm."}
   ],
 
   // ---------------------------------------------------------------------------
@@ -753,12 +883,18 @@ window.HEALTH = {
     { topic: "Stroke location (most important)", text: "The written Dhaka MRI report says 'The posterior fossa, brain stem and CP angles are normal' (and the CT says 'Brain stem and cerebellum unremarkable'), but CMC's summary says the MRI demonstrated a left medullary infarct. Did CMC review the MRI images themselves, or base the diagnosis on her symptoms? Should we keep the MRI CD safe for future comparison?", docs: ["bsh-mri", "cmc-discharge"] },
     { topic: "Weakness", text: "The Dhaka ER note says 'left-sided weakness', but CMC found full strength and only right-sided numbness. Was there ever real weakness, or was the ER note inaccurate?", docs: ["bsh-er", "cmc-discharge"] },
     { topic: "Aneurysm", text: "The CT angiogram mentioned in CMC's summary did not show the 2.2 mm aneurysm seen on the Dhaka MRA. Can we get a copy of that report? Since very small aneurysms can be hard to see on CT angiography, is any repeat scan ever needed?", docs: ["bsh-mri", "cmc-discharge"] },
-    { topic: "Blood pressure tablets", text: "Her BP medicine isn't on the CMC discharge list. Which BP tablet and dose should she be on, and what BP target should we aim for at home?", docs: ["cmc-discharge"] },
-    { topic: "Cholesterol target", text: "LDL was 162 before treatment. When should we recheck the lipid profile, and what LDL target do you want? Is atorvastatin 10 mg enough?", docs: ["bsh-labs"] },
-    { topic: "Old medicines", text: "Should fluoxetine and quetiapine be fully stopped now that she takes sertraline + duloxetine? (She was on them before CMC.) Was she already on pregabalin, and which osteoporosis medicine had she taken since 2019?", docs: ["cmc-discharge"] },
-    { topic: "Medicine combination", text: "She takes aspirin together with sertraline and duloxetine (and pregabalin). Is there anything to watch for, e.g. bleeding, low sodium, serotonin-related side effects, or drowsiness and falls? Is pantoprazole meant to be long-term?", docs: ["cmc-discharge"] },
-    { topic: "Pregabalin at her age", text: "The NHS leaflet says pregabalin 'might not be suitable for people older than 65'. She is 70 and also takes sertraline and duloxetine, which can cause dizziness. Is 75 mg twice daily still right for her, given her fall and fracture risk? (Don't stop it suddenly.)", docs: ["cmc-discharge"] },
-    { topic: "Zoledronic acid (urgent: not given yet)", text: "The drip has NOT been given yet, and her spine fracture risk is high. Can it be arranged soon? The discharge sheet says 4 mg; the usual osteoporosis dose is 5 mg once a year. Please confirm the intended dose and how often to repeat it. Her creatinine rose from 0.7 to 1.0 and the left kidney 'appears shrunken': is a kidney function (eGFR) check needed first? Does she need a dental check or vitamin D top-up beforehand?", docs: ["cmc-discharge", "cmc-dexa"] },
+    { topic: "Blood pressure target", text: "Her BP tablet is now Bizoran 5/20 (amlodipine + olmesartan); in April it was Olmesan 20. Home readings are about 125–140/80 (some taken after activity). What target do you want for her? Summaries of the 2021 US stroke guideline cite under 130/80. Naproxen can raise BP while she takes it.", docs: ["dhk-rd-rx", "dhk-qdm-rx"] },
+    { topic: "Cholesterol target", text: "LDL was 162 before treatment. On 12 Nov the statin changed from atorvastatin 10 to rosuvastatin 10, and a lipid profile was ordered. What LDL target do you want? A summary of the 2021 US stroke guideline cites under 70. The US rosuvastatin label suggests starting at 5 mg in Asian patients; is 10 mg right?", docs: ["bsh-labs", "dhk-rd-rx"] },
+    { topic: "Medicines that disappeared", text: "Sertraline, Mego-XL, Calcirol (vitamin D) and Naturolax from CMC are not on the 12 Nov list. Were they stopped on purpose? Sertraline should not be stopped suddenly. Are fluoxetine, 'Frenvas/Fenvas 10' and Minibet (ciprofibrate) from April fully stopped? Which osteoporosis medicine had she taken since 2019?", docs: ["cmc-discharge", "dhk-qdm-rx", "dhk-rd-rx"] },
+    { topic: "Four drowsy medicines and falls", text: "She now takes four medicines that act on the brain: pregabalin, duloxetine, quetiapine and clonazepam (Pandura, new). US guidance for older adults (AGS Beers Criteria 2023) advises avoiding 3 or more together, and avoiding benzodiazepines like clonazepam, because of falls and fractures; her spine T-score is −3.4. What is Pandura for, and for how long? Can any be reduced safely? (None should be stopped suddenly.) Should sodium be checked, as duloxetine can lower it?", docs: ["dhk-rd-rx"] },
+    { topic: "Pregabalin CR: timing and dose", text: "Lyrinex CR 82.5 is written morning and night (165 mg a day). The US label for pregabalin CR says once daily after the evening meal, with lower doses when kidney function is reduced. The NHS says pregabalin 'might not be suitable for people older than 65'. Is twice daily intended, and is the dose right once her new creatinine result is back? (Don't stop it suddenly.)", docs: ["dhk-rd-rx"] },
+    { topic: "Naproxen course (new, 12 Nov)", text: "Napro-A Plus (naproxen) was added for 10 or 15 days; the handwriting is unclear, so please confirm. The naproxen label warns of higher heart-attack and stroke risk. It says naproxen can interfere with low-dose aspirin's protective effect. It can raise BP and harm the kidneys when combined with BP tablets like olmesartan, and it raises bleeding risk with aspirin and duloxetine. Is it safe for her after the stroke? Could paracetamol be used instead? Should creatinine and BP be checked during the course?", docs: ["dhk-rd-rx"] },
+    { topic: "Two acid reducers at once", text: "Rabe 20 (rabeprazole) twice daily plus the esomeprazole inside Napro-A Plus means two acid reducers (PPIs) at the same time. Is that intended? After the course, can she take just one, once a day? Long-term PPI use is linked to fractures, and she has osteoporosis.", docs: ["dhk-rd-rx"] },
+    { topic: "Burning pain: what is causing it?", text: "Is the burning pain caused by the stroke itself (central post-stroke pain)? It is on the right side, where CMC found reduced feeling. Or is it a lower-back nerve problem (buttock to foot, worse after walking), or both? Does she need a spine X-ray or MRI to rule out a compression fracture before continuing the exercises? Should the exercises be changed meanwhile? The family describes it as mostly the right side; the 12 Nov note says all 4 limbs.", docs: ["dhk-rd-rx", "cmc-discharge"] },
+    { topic: "Constipation and anal swelling", text: "She strains hard even when the stool is soft, and afterwards there is a painful swelling on the left side of the anus (no bleeding). Several of her medicines can cause constipation. Can someone examine the area? Is Ezylife only for occasional use? The UK label says it should not be used daily for more than 5 days without finding the cause. Should she continue isabgol?", docs: ["dhk-rd-rx"] },
+    { topic: "Furrowed forehead", text: "Her forehead has been furrowed most of the time for about a month and relaxes only in sleep. It started around the same time as the burning pain. Is this pain, anxiety, compensation for the drooping left eyelid, or a medicine effect (quetiapine)? We can show a short video.", docs: [] },
+    { topic: "Small errors on the prescriptions", text: "The 12 Nov prescription says stroke '(June 2026)' (it was 5 Apr; June was the CMC admission) and age 73; the 8 Apr one says age 75. She was born 15 Sep 1956 (70). Worth correcting in her records.", docs: ["dhk-rd-rx", "dhk-qdm-rx"] },
+    { topic: "Zoledronic acid (urgent: not given yet)", text: "A bone density scan (BMD) was ordered on 12 Nov. The drip has NOT been given yet, and her spine fracture risk is high. Can it be arranged soon? The discharge sheet says 4 mg; the usual osteoporosis dose is 5 mg once a year. Please confirm the intended dose and how often to repeat it. Her creatinine rose from 0.7 to 1.0 and the left kidney 'appears shrunken': is a kidney function (eGFR) check needed first? Does she need a dental check or vitamin D top-up beforehand?", docs: ["cmc-discharge", "cmc-dexa"] },
     { topic: "Heart echo", text: "Dhaka's echo said grade II diastolic dysfunction + mild pulmonary hypertension; CMC's echo said grade I with mild valve leaks and no pulmonary hypertension mentioned, and the discharge summary calls it normal. Is any heart follow-up needed?", docs: ["bsh-echo", "cmc-echo"] },
     { topic: "Anaemia", text: "Haemoglobin is ~11 (mildly low). Should iron levels be checked, especially while she is on aspirin?", docs: ["bsh-labs"] },
     { topic: "Liver", text: "How often should the FibroScan/ultrasound be repeated, and with which doctor (hepatology OPD)?", docs: ["cmc-fibroscan", "cmc-usg"] },
@@ -775,7 +911,9 @@ window.HEALTH = {
     "Zoledronic acid drip: not given yet (15 Nov 2026). Record the date when it is given",
     "Any reports or check-ups after 5 Jun 2026",
     "Physiotherapy home-programme pamphlet",
-    "Current BP medicine name and dose"
+    "Results of the tests ordered on 12 Nov (CBC, creatinine, lipid profile, FT4/TSH, BMD)",
+    "Napro-A Plus course length (10 or 15 days?) and the unreadable medicine names on the 8 Apr prescription",
+    "Photos of the medicine strips she is actually taking now"
   ],
 
   emergency: {
@@ -797,7 +935,10 @@ window.HEALTH = {
   // ---------------------------------------------------------------------------
   progress: [
     { date: "2026-04-05", bp: "130/70", pulse: 66, weightKg: null, note: "BSH Emergency, day of stroke", source: "bsh-er" },
-    { date: "2026-06-01", bp: "114/70", pulse: 88, weightKg: 62, note: "CMC admission", source: "cmc-discharge" }
+    { date: "2026-04-08", bp: "100/60", pulse: null, weightKg: null, note: "Prof. Quazi Deen Mohammad's chamber", source: "dhk-qdm-rx" },
+    { date: "2026-06-01", bp: "114/70", pulse: 88, weightKg: 62, note: "CMC admission", source: "cmc-discharge" },
+    { date: "2026-11-12", bp: "120/80", pulse: null, weightKg: null, note: "Dr Rajib Das's chamber", source: "dhk-rd-rx" },
+    { date: "2026-11-16", bp: "125–140/80", pulse: null, weightKg: null, note: "Home readings through the day (family email); some taken after activity, so may read high", source: "" }
   ],
 
   // ---------------------------------------------------------------------------
@@ -851,7 +992,7 @@ window.HEALTH = {
     "chronic-liver": ["Coarse liver echotexture", "An ultrasound appearance that can be an early sign of liver change; checked further with FibroScan (significant scarring unlikely)."],
     "pelvic-kidney": ["Ectopic / pelvic kidney", "A kidney that settled low in the pelvis before birth instead of moving up. Often causes no problems."],
     "antiplatelet": ["Antiplatelet", "A medicine (like aspirin) that makes platelets less sticky to prevent clots."],
-    "statin": ["Statin", "A cholesterol-lowering medicine (atorvastatin) that also helps stabilise fatty deposits (plaque) in artery walls."],
+    "statin": ["Statin", "A cholesterol-lowering medicine (atorvastatin at CMC; rosuvastatin since 12 Nov 2026) that also helps stabilise fatty deposits (plaque) in artery walls."],
     "exchange": ["Food 'exchange'", "A fixed portion with similar calories, so foods can be swapped. E.g. 1 cereal exchange = ½ cup cooked rice = 1 roti."]
   }
 };

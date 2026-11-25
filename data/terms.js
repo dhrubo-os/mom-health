@@ -194,7 +194,7 @@ window.TERMS = [
 
   // ---------- her medicine names (facts from NHS leaflets / pharmacy listings; see Medicine guide) ----------
   ["med-aspirin", "\\baspirin\\b", "i", "Aspirin (low-dose, 75 mg)", "A blood thinner (antiplatelet). It makes blood clots less likely, which lowers the chance of a heart attack or stroke (NHS). It is on her CMC discharge list. More detail is in the Medicine guide."],
-  ["med-atorvastatin", "atorvastatin", "i", "Atorvastatin", "A statin: a medicine that lowers cholesterol. In people with heart or blood-vessel disease it can help prevent heart attacks and strokes (NHS). She takes 10 mg at night (CMC discharge list); her LDL ('bad') cholesterol was 162 in April."],
+  ["med-atorvastatin", "atorvastatin", "i", "Atorvastatin", "A statin: a medicine that lowers cholesterol. In people with heart or blood-vessel disease it can help prevent heart attacks and strokes (NHS). CMC prescribed 10 mg at night; on 12 Nov 2026 it was replaced by rosuvastatin. Her LDL ('bad') cholesterol was 162 in April."],
   ["med-sertraline", "sertraline", "i", "Sertraline", "An antidepressant (SSRI) used for depression and anxiety-related conditions (NHS). CMC Psychiatry started it for anxiety linked to stress. It must not be stopped suddenly."],
   ["med-duloxetine", "duloxetine", "i", "Duloxetine", "An antidepressant (SNRI) used for depression and anxiety, and also for nerve pain (NHS). It must not be stopped suddenly."],
   ["med-pregabalin", "pregabalin", "i", "Pregabalin", "A medicine for nerve pain (and also anxiety and epilepsy) (NHS). It can cause dizziness or sleepiness, and must not be stopped suddenly."],
@@ -204,7 +204,19 @@ window.TERMS = [
   ["med-mego", "Mego-XL", "i", "Mego-XL", "A nerve-vitamin capsule. Pharmacy listings show vitamin B12 (methylcobalamin), alpha-lipoic acid, vitamin B6 and folic acid. Check the pack."],
   ["med-naturolax", "Naturolax", "i", "Naturolax", "Isabgol (psyllium husk) fibre powder. It softens and bulks up stools; take with plenty of water."],
   ["med-fluoxetine", "fluoxetine", "i", "Fluoxetine", "An antidepressant (SSRI). She took 20 mg before CMC; it is not on the CMC discharge list (ask whether it was stopped)."],
-  ["med-quetiapine", "quetiapine", "i", "Quetiapine", "An antipsychotic medicine, used for several mental-health conditions. She took 25 mg at bedtime before CMC; it is not on the CMC discharge list (ask whether it was stopped)."],
+  ["med-quetiapine", "quetiapine|Quiet 25", "i", "Quetiapine (Quiet 25)", "An antipsychotic medicine used for several mental-health conditions. She took 25 mg at bedtime before the stroke. CMC left it off the discharge list, but it is on the 8 Apr and 12 Nov 2026 prescriptions. It can cause drowsiness, unsteadiness and constipation."],
+  ["med-rosuvastatin", "rosuvastatin|\\bRosu 10\\b", "i", "Rosuvastatin (Rosu 10)", "A statin (cholesterol-lowering medicine). It replaced atorvastatin on 12 Nov 2026. More in the Medicine guide."],
+  ["med-bizoran", "Bizoran(?: 5/20)?", "i", "Bizoran 5/20", "A blood pressure tablet with two medicines: amlodipine 5 mg + olmesartan 20 mg (Beximco)."],
+  ["med-olmesan", "Olmesan(?: 20)?", "i", "Olmesan 20", "Olmesartan 20 mg, a blood pressure tablet (Beximco). She took it in April 2026; it is now inside Bizoran 5/20."],
+  ["med-lyrinex", "Lyrinex(?: CR)?(?: 82\\.5)?", "i", "Lyrinex CR 82.5", "Slow-release pregabalin 82.5 mg (NIPRO JMI), for nerve pain. Written morning and night on 12 Nov; the US label for pregabalin CR says once daily after the evening meal, so confirm with the doctor."],
+  ["med-diliner", "Diliner(?: DR)?(?: 30)?", "i", "Diliner DR 30", "Duloxetine 30 mg capsule (Square). It replaced duloxetine 20 mg on 12 Nov 2026."],
+  ["med-clonazepam", "clonazepam|Pandura(?: 0\\.5)?", "i", "Clonazepam (Pandura 0.5)", "A benzodiazepine (calming/sedative) medicine, new on 12 Nov 2026. It can cause drowsiness and unsteadiness and may be habit-forming. Don't stop it suddenly. US guidance for older adults advises avoiding it because of falls."],
+  ["med-rabeprazole", "rabeprazole|\\bRabe 20\\b", "i", "Rabeprazole (Rabe 20)", "An acid reducer (PPI). It replaced pantoprazole on 12 Nov 2026."],
+  ["med-picosulfate", "sodium picosulfate|Ezylife(?: 10)?", "i", "Ezylife 10 (sodium picosulfate)", "A stimulant laxative, taken at night when the stool is hard. It is meant for occasional use."],
+  ["med-naproxen", "naproxen|Napro-?A Plus(?: 375/20)?", "i", "Napro-A Plus (naproxen + esomeprazole)", "A painkiller/anti-inflammatory (NSAID) with a built-in acid reducer. It is a short course from 12 Nov 2026. Its label warns about heart and stroke risk, kidneys, BP and bleeding, so it is worth checking with the doctor."],
+  ["med-ecosprin", "Ecosprin(?: 75)?", "i", "Ecosprin 75", "A Bangladeshi brand of low-dose aspirin 75 mg (ACME)."],
+  ["med-minibet", "Minibet(?: 100)?", "i", "Minibet 100", "Ciprofibrate 100 mg (Square), a medicine that lowers blood fats. It appears on the 8 Apr 2026 drug history."],
+  ["cpsp", "central post-stroke pain", "i", "Central post-stroke pain", "Pain, often burning, caused by the stroke damaging the brain's sensation pathways. It is felt on the side of the body that lost feeling and often starts weeks to months after the stroke. Only a doctor can diagnose it."],
   ["med-betahistine", "betahistine", "i", "Betahistine", "A medicine for vertigo (a spinning feeling), as in Ménière's disease. She took it occasionally."],
 
   // ---------- medicines & how they're given ----------
